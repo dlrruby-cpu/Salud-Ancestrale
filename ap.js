@@ -3,8 +3,8 @@
  * by LópezTools&Book's™
  * 
  * Funciones expuestas:
- *   SaludAncestral.toggleDetails(id, btn)   → expandir/colapsar estudio
- *   SaludAncestral.speakCard(cardId, btn)   → leer solo una tarjeta
+ *   SaludAncestral.toggleDetails(id, btn)     → expandir/colapsar estudio
+ *   SaludAncestral.speakCard(cardId, btn)     → leer solo una tarjeta
  *   SaludAncestral.speakSection(sectionId, btn) → leer toda una sección
  */
 
@@ -64,7 +64,7 @@ acceptBtn.addEventListener('click', function() {
     var availableVoices = [];
     var voicesReady = false;
     var currentUtterance = null;
-    var currentButton = null; // botón que inició la lectura
+    var currentButton = null;
 
     function initVoices() {
         availableVoices = speechSynthesis.getVoices();
@@ -97,13 +97,11 @@ acceptBtn.addEventListener('click', function() {
         return availableVoices.length > 0 ? availableVoices[0] : null;
     }
 
-    // Detener cualquier lectura activa y restaurar botones
     function stopAll() {
         if (currentUtterance) {
             speechSynthesis.cancel();
             currentUtterance = null;
         }
-        // Restaurar todos los botones
         var allAudioBtns = document.querySelectorAll('.btn-audio, .section-speak-btn');
         allAudioBtns.forEach(function(b) {
             b.classList.remove('playing');
@@ -118,15 +116,12 @@ acceptBtn.addEventListener('click', function() {
         currentButton = null;
     }
 
-    // Función genérica para leer texto
     function speakText(text, btnElement, originalText) {
         if (currentUtterance && currentButton === btnElement) {
-            // Si pulsamos el mismo botón, detenemos
             stopAll();
             return;
         }
 
-        // Detener cualquier lectura previa
         stopAll();
 
         if (!legalAccepted && legalOverlay.classList.contains('show')) return;
@@ -148,7 +143,6 @@ acceptBtn.addEventListener('click', function() {
         currentUtterance.pitch = 1;
         currentUtterance.volume = 1;
 
-        // Marcar botón como activo
         if (btnElement) {
             btnElement.classList.add('playing');
             btnElement.textContent = '⏹ Detener';
@@ -171,16 +165,13 @@ acceptBtn.addEventListener('click', function() {
         speechSynthesis.speak(currentUtterance);
     }
 
-    // ============ FUNCIÓN PÚBLICA: LEER TARJETA ============
     SaludAncestral.speakCard = function(cardId, btnElement) {
         var card = document.getElementById(cardId);
         if (!card) return;
-        // Leer solo el texto de la tarjeta (incluye detalles si están expandidos)
         var text = card.innerText;
         speakText(text, btnElement, '🔊 Escuchar estudio');
     };
 
-    // ============ FUNCIÓN PÚBLICA: LEER SECCIÓN ============
     SaludAncestral.speakSection = function(sectionId, btnElement) {
         var section = document.getElementById(sectionId);
         if (!section) return;
@@ -188,7 +179,6 @@ acceptBtn.addEventListener('click', function() {
         speakText(text, btnElement, '🔊 Escuchar toda la sección');
     };
 
-    // ============ BOTÓN FLOTANTE PRINCIPAL ============
     var speakBtn = document.getElementById('speakButton');
     speakBtn.addEventListener('click', function() {
         if (currentUtterance) {
