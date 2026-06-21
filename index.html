@@ -199,12 +199,12 @@
         }
 
         .card-image {
-            height: 130px;
-            background-color: #e8e0d0;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #d4c9b5;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .card-image::after {
@@ -213,19 +213,28 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 35px;
+            height: 50px;
             background: linear-gradient(to top, var(--paper), transparent);
         }
 
         .card-image .card-symbol {
-            opacity: 0.12;
-            width: 100px;
-            height: 100px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 2;
         }
 
         .card-image .card-symbol svg {
-            width: 100px;
-            height: 100px;
+            width: 30px;
+            height: 30px;
         }
 
         .card::before {
@@ -234,10 +243,11 @@
             top: -5px;
             right: 10px;
             font-size: 2rem;
-            opacity: 0.3;
-            color: #000;
-            z-index: 2;
+            opacity: 0.4;
+            color: #fff;
+            z-index: 3;
             font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .card-content {
@@ -329,6 +339,10 @@
         }
 
         .btn-audio.playing {
+            background: #8b0000;
+        }
+
+        .section-speak-btn.playing {
             background: #8b0000;
         }
 
@@ -489,29 +503,22 @@
             border-bottom: 1px dashed #c4b49a;
         }
 
+        .img-credit {
+            font-size: 0.65rem;
+            color: #999;
+            text-align: right;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
         @media (max-width: 600px) {
-            .container {
-                padding: 0.8rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .nav {
-                gap: 0.5rem;
-            }
-            .nav a {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.85rem;
-            }
-            .speak-btn {
-                width: 42px;
-                height: 42px;
-                bottom: 15px;
-                right: 15px;
-            }
-            .legal-modal {
-                padding: 1.5rem;
-            }
+            .container { padding: 0.8rem; }
+            h1 { font-size: 2rem; }
+            .nav { gap: 0.5rem; }
+            .nav a { padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+            .speak-btn { width: 42px; height: 42px; bottom: 15px; right: 15px; }
+            .legal-modal { padding: 1.5rem; }
+            .card-image { height: 160px; }
         }
     </style>
 </head>
@@ -560,14 +567,15 @@
 
         <!-- SECCIÓN: INICIO -->
         <div class="section active" id="section-inicio">
-            <h2>⚠️ Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
+            <h2>🌿 Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
             <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-inicio', this)">🔊 Escuchar toda la sección</button>
 
             <div class="cards-grid">
+
                 <!-- CHINA -->
                 <div class="card" id="card-china">
-                    <div class="card-image china">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/acupuntura/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="42" y="2" width="16" height="96" fill="#000" />
@@ -587,7 +595,7 @@
                             </svg>
                             Medicina Tradicional China
                         </h3>
-                        <p class="curiosity-preview">ℹ️ Acupuntura: más que placebo</p>
+                        <p class="curiosity-preview">🔬 Acupuntura: más que placebo</p>
                         <div class="btn-row">
                             <button class="btn-expand" onclick="SaludAncestral.toggleDetails('china-detail', this)">Ver estudio +</button>
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-china', this)">🔊 Escuchar estudio</button>
@@ -599,12 +607,13 @@
                             <span class="grade-badge">GRADE: Moderado</span>
                             <p style="margin-top:0.5rem;"><strong>Dato extra:</strong> El punto P6 reduce vómitos post-quimio (Cochrane, certeza ALTA).</p>
                         </div>
+                        <p class="img-credit">📷 Acupuntura tradicional china</p>
                     </div>
                 </div>
 
                 <!-- AYURVEDA -->
                 <div class="card" id="card-ayurveda">
-                    <div class="card-image ayurveda">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/curcuma/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
@@ -622,7 +631,7 @@
                             </svg>
                             Medicina Ayurveda
                         </h3>
-                        <p class="curiosity-preview">ℹ️ Cúrcuma vs. ibuprofeno</p>
+                        <p class="curiosity-preview">🔬 Cúrcuma vs. ibuprofeno</p>
                         <div class="btn-row">
                             <button class="btn-expand" onclick="SaludAncestral.toggleDetails('ayurveda-detail', this)">Ver estudio +</button>
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-ayurveda', this)">🔊 Escuchar estudio</button>
@@ -634,12 +643,13 @@
                             <span class="grade-badge">GRADE: Moderado</span>
                             <p style="margin-top:0.5rem;"><strong>Curiosidad:</strong> La ashwagandha también reduce cortisol y ansiedad (11 ECAs, 2022).</p>
                         </div>
+                        <p class="img-credit">📷 Cúrcuma fresca y en polvo</p>
                     </div>
                 </div>
 
                 <!-- ZULÚ -->
                 <div class="card" id="card-zulu">
-                    <div class="card-image africa">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/planta/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
@@ -662,7 +672,7 @@
                             </svg>
                             Medicina Zulú (Umckaloabo)
                         </h3>
-                        <p class="curiosity-preview">ℹ️ De raíz africana a farmacia alemana</p>
+                        <p class="curiosity-preview">🔬 De raíz africana a farmacia alemana</p>
                         <div class="btn-row">
                             <button class="btn-expand" onclick="SaludAncestral.toggleDetails('africa-detail', this)">Ver estudio +</button>
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-zulu', this)">🔊 Escuchar estudio</button>
@@ -674,12 +684,13 @@
                             <span class="grade-badge">GRADE: Moderado</span>
                             <p style="margin-top:0.5rem;"><strong>Historia:</strong> Aprobado en Alemania desde 1983 como medicamento.</p>
                         </div>
+                        <p class="img-credit">📷 Planta medicinal africana</p>
                     </div>
                 </div>
 
                 <!-- PERSA -->
                 <div class="card" id="card-persia">
-                    <div class="card-image persia">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/azafran/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="50" cy="50" r="30" fill="none" stroke="#000" stroke-width="5"/>
@@ -697,7 +708,7 @@
                             </svg>
                             Medicina Persa
                         </h3>
-                        <p class="curiosity-preview">ℹ️ Azafrán, tan eficaz como antidepresivos</p>
+                        <p class="curiosity-preview">🔬 Azafrán, tan eficaz como antidepresivos</p>
                         <div class="btn-row">
                             <button class="btn-expand" onclick="SaludAncestral.toggleDetails('persia-detail', this)">Ver estudio +</button>
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-persia', this)">🔊 Escuchar estudio</button>
@@ -709,12 +720,13 @@
                             <span class="grade-badge">GRADE: Moderado-bajo</span>
                             <p style="margin-top:0.5rem;"><strong>Mecanismo:</strong> Safranal y crocina modulan serotonina y dopamina.</p>
                         </div>
+                        <p class="img-credit">📷 Flor de azafrán (Crocus sativus)</p>
                     </div>
                 </div>
 
                 <!-- EGIPTO -->
                 <div class="card" id="card-egipto">
-                    <div class="card-image egypt">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/miel/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="4"/>
@@ -731,7 +743,7 @@
                             </svg>
                             Medicina del Antiguo Egipto
                         </h3>
-                        <p class="curiosity-preview">ℹ️ Miel cicatriza quemaduras más rápido</p>
+                        <p class="curiosity-preview">🔬 Miel cicatriza quemaduras más rápido</p>
                         <div class="btn-row">
                             <button class="btn-expand" onclick="SaludAncestral.toggleDetails('egypt-detail', this)">Ver estudio +</button>
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-egipto', this)">🔊 Escuchar estudio</button>
@@ -743,6 +755,7 @@
                             <span class="grade-badge">GRADE: Alto (quemaduras)</span>
                             <p style="margin-top:0.5rem;"><strong>Dato curioso:</strong> Papiro Edwin Smith (~1600 a.C.) ya recomendaba miel para heridas.</p>
                         </div>
+                        <p class="img-credit">📷 Miel de abeja natural</p>
                     </div>
                 </div>
             </div>
