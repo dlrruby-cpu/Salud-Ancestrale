@@ -1,4 +1,4 @@
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -490,72 +490,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #2b2b2b;
-            color: #f5ebd9;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            z-index: 10001;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .cookie-banner.show {
-            transform: translateY(0);
-        }
-
-        .cookie-banner p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        .cookie-banner a {
-            color: #f5ebd9;
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .cookie-btn {
-            padding: 0.4rem 1.5rem;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .cookie-btn.accept {
-            background: var(--wood-dark);
-            color: white;
-        }
-
-        .cookie-btn.accept:hover {
-            background: #2a1d0e;
-        }
-
-        .cookie-btn.reject {
-            background: #8b0000;
-            color: white;
-        }
-
-        .cookie-btn.reject:hover {
-            background: #5a0000;
-        }
-
         .about-list {
             list-style: none;
             padding: 0;
@@ -587,18 +521,175 @@
             .card-image { height: 160px; }
         }
     </style>
+
+    <!-- ===== SCRIPT CMP DE THE MONEYTIZER ===== -->
+    <script type="text/javascript" async=true>
+    (function() {
+      var host = "www.themoneytizer.com";
+      var element = document.createElement('script');
+      var firstScript = document.getElementsByTagName('script')[0];
+      var url = 'https://cmp.inmobi.com'
+        .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+      var uspTries = 0;
+      var uspTriesLimit = 3;
+      element.async = true;
+      element.type = 'text/javascript';
+      element.src = url;
+
+      firstScript.parentNode.insertBefore(element, firstScript);
+
+      function makeStub() {
+        var TCF_LOCATOR_NAME = '__tcfapiLocator';
+        var queue = [];
+        var win = window;
+        var cmpFrame;
+
+        function addFrame() {
+          var doc = win.document;
+          var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+          if (!otherCMP) {
+            if (doc.body) {
+              var iframe = doc.createElement('iframe');
+
+              iframe.style.cssText = 'display:none';
+              iframe.name = TCF_LOCATOR_NAME;
+              doc.body.appendChild(iframe);
+            } else {
+              setTimeout(addFrame, 5);
+            }
+          }
+          return !otherCMP;
+        }
+
+        function tcfAPIHandler() {
+          var gdprApplies;
+          var args = arguments;
+
+          if (!args.length) {
+            return queue;
+          } else if (args[0] === 'setGdprApplies') {
+            if (
+              args.length > 3 &&
+              args[2] === 2 &&
+              typeof args[3] === 'boolean'
+            ) {
+              gdprApplies = args[3];
+              if (typeof args[2] === 'function') {
+                args[2]('set', true);
+              }
+            }
+          } else if (args[0] === 'ping') {
+            var retr = {
+              gdprApplies: gdprApplies,
+              cmpLoaded: false,
+              cmpStatus: 'stub'
+            };
+
+            if (typeof args[2] === 'function') {
+              args[2](retr);
+            }
+          } else {
+            if(args[0] === 'init' && typeof args[3] === 'object') {
+              args[3] = Object.assign(args[3], { tag_version: 'V3' });
+            }
+            queue.push(args);
+          }
+        }
+
+        function postMessageEventHandler(event) {
+          var msgIsString = typeof event.data === 'string';
+          var json = {};
+
+          try {
+            if (msgIsString) {
+              json = JSON.parse(event.data);
+            } else {
+              json = event.data;
+            }
+          } catch (ignore) {}
+
+          var payload = json.__tcfapiCall;
+
+          if (payload) {
+            window.__tcfapi(
+              payload.command,
+              payload.version,
+              function(retValue, success) {
+                var returnMsg = {
+                  __tcfapiReturn: {
+                    returnValue: retValue,
+                    success: success,
+                    callId: payload.callId
+                  }
+                };
+                if (msgIsString) {
+                  returnMsg = JSON.stringify(returnMsg);
+                }
+                if (event && event.source && event.source.postMessage) {
+                  event.source.postMessage(returnMsg, '*');
+                }
+              },
+              payload.parameter
+            );
+          }
+        }
+
+        while (win) {
+          try {
+            if (win.frames[TCF_LOCATOR_NAME]) {
+              cmpFrame = win;
+              break;
+            }
+          } catch (ignore) {}
+
+          if (win === window.top) {
+            break;
+          }
+          win = win.parent;
+        }
+        if (!cmpFrame) {
+          addFrame();
+          win.__tcfapi = tcfAPIHandler;
+          win.addEventListener('message', postMessageEventHandler, false);
+        }
+      };
+
+      makeStub();
+
+      var uspStubFunction = function() {
+        var arg = arguments;
+        if (typeof window.__uspapi !== uspStubFunction) {
+          setTimeout(function() {
+            if (typeof window.__uspapi !== 'undefined') {
+              window.__uspapi.apply(window.__uspapi, arg);
+            }
+          }, 500);
+        }
+      };
+
+      var checkIfUspIsReady = function() {
+        uspTries++;
+        if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+          console.warn('USP is not accessible');
+        } else {
+          clearInterval(uspInterval);
+        }
+      };
+
+      if (typeof window.__uspapi === 'undefined') {
+        window.__uspapi = uspStubFunction;
+        var uspInterval = setInterval(checkIfUspIsReady, 6000);
+      }
+    })();
+    </script>
+    <!-- ===== FIN SCRIPT CMP ===== -->
+
 </head>
 <body>
     <div class="bamboo-background"></div>
 
-    <div class="cookie-banner" id="cookieBanner">
-        <p>Utilizamos cookies propias y de terceros para fines analíticos y para mostrar publicidad personalizada. Puedes aceptar o rechazar su uso. Para más información, consulta nuestra <a href="#politica-cookies">Política de Cookies</a>.</p>
-        <div class="cookie-buttons">
-            <button class="cookie-btn accept" id="cookieAcceptBtn">Aceptar</button>
-            <button class="cookie-btn reject" id="cookieRejectBtn">Rechazar</button>
-        </div>
-    </div>
-
+    <!-- Aviso legal (términos de uso) -->
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
             <h2>⚠️ Aviso legal y condiciones de uso</h2>
@@ -608,7 +699,7 @@
                 <p><strong>3. No sustituye el consejo profesional.</strong> Ningún contenido de esta web debe interpretarse como sustitutivo del diagnóstico, tratamiento o consejo de un profesional sanitario cualificado.</p>
                 <p><strong>4. Exención de responsabilidad.</strong> El titular de la página no se hace responsable del uso que terceros puedan hacer de la información aquí contenida ni de los daños que pudieran derivarse.</p>
                 <p><strong>5. Monetización y publicidad.</strong> Esta web puede mostrar anuncios proporcionados por terceros (p. ej., Google AdSense) para financiar su mantenimiento. Los anunciantes pueden utilizar cookies para mostrar anuncios basados en tus visitas anteriores. La presencia de anuncios no implica recomendación ni aval de los productos o servicios anunciados.</p>
-                <p><strong>6. Privacidad y cookies.</strong> Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y, si prestas tu consentimiento, cookies de terceros con fines publicitarios y analíticos. Puedes configurar o rechazar estas cookies mediante el banner de consentimiento. Para más detalles, consulta nuestra <a href="#politica-cookies" style="color:var(--wood-dark);">Política de Cookies</a>.</p>
+                <p><strong>6. Privacidad y cookies.</strong> Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y cookies de terceros con fines publicitarios y analíticos. Puedes gestionar tus preferencias a través del banner de consentimiento. Para más detalles, consulta nuestra Política de Cookies.</p>
                 <p><strong>7. Propiedad intelectual.</strong> Los textos y el diseño de la web son originales y se comparten con fines educativos sin ánimo de lucro. Las imágenes pueden estar sujetas a derechos de terceros y se utilizan bajo licencias que permiten su uso.</p>
             </div>
             <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
@@ -640,8 +731,9 @@
             <a data-section="sobre">Sobre la web</a>
         </nav>
 
+        <!-- SECCIÓN: INICIO -->
         <div class="section active" id="section-inicio">
-            <h2>Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
+            <h2>🌿 Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
             <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-inicio', this)">🔊 Escuchar toda la sección</button>
 
@@ -798,7 +890,7 @@
                     </div>
                 </div>
 
-                <!-- EGIPTO - PIRÁMIDES (IMAGEN CORREGIDA) -->
+                <!-- EGIPTO -->
                 <div class="card" id="card-egipto">
                     <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=600&q=80');">
                         <div class="card-symbol">
@@ -904,4 +996,4 @@
 
     <script src="ap.js"></script>
 </body>
-</html>    
+</html>
