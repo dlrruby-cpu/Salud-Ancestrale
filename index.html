@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -490,6 +490,72 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
 
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #2b2b2b;
+            color: #f5ebd9;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 10001;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-banner p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .cookie-banner a {
+            color: #f5ebd9;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .cookie-btn {
+            padding: 0.4rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .cookie-btn.accept {
+            background: var(--wood-dark);
+            color: white;
+        }
+
+        .cookie-btn.accept:hover {
+            background: #2a1d0e;
+        }
+
+        .cookie-btn.reject {
+            background: #8b0000;
+            color: white;
+        }
+
+        .cookie-btn.reject:hover {
+            background: #5a0000;
+        }
+
         .about-list {
             list-style: none;
             padding: 0;
@@ -525,18 +591,26 @@
 <body>
     <div class="bamboo-background"></div>
 
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Utilizamos cookies propias y de terceros para fines analíticos y para mostrar publicidad personalizada. Puedes aceptar o rechazar su uso. Para más información, consulta nuestra <a href="#politica-cookies">Política de Cookies</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" id="cookieAcceptBtn">Aceptar</button>
+            <button class="cookie-btn reject" id="cookieRejectBtn">Rechazar</button>
+        </div>
+    </div>
+
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
             <h2>⚠️ Aviso legal y condiciones de uso</h2>
             <div class="legal-text">
-    <p><strong>1. Finalidad informativa y didáctica.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural. No constituye asesoramiento médico, farmacológico ni terapéutico de ningún tipo.</p>
-    <p><strong>2. No apología del uso de sustancias.</strong> Este sitio no promueve, incita ni recomienda el consumo, cultivo, preparación o administración de ninguna sustancia, planta, extracto o práctica descrita en las medicinas tradicionales mencionadas.</p>
-    <p><strong>3. No sustituye el consejo profesional.</strong> Ningún contenido de esta web debe interpretarse como sustitutivo del diagnóstico, tratamiento o consejo de un profesional sanitario cualificado.</p>
-    <p><strong>4. Exención de responsabilidad.</strong> El titular de la página no se hace responsable del uso que terceros puedan hacer de la información aquí contenida ni de los daños que pudieran derivarse.</p>
-    <p><strong>5. Monetización y publicidad.</strong> Esta web puede mostrar anuncios proporcionados por terceros (por ejemplo, Google AdSense) para financiar su mantenimiento. Los anunciantes pueden utilizar cookies para mostrar anuncios basados en tus visitas anteriores a este u otros sitios web. La presencia de anuncios no implica recomendación ni aval de los productos o servicios anunciados.</p>
-    <p><strong>6. Privacidad y cookies.</strong> Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y, si prestas tu consentimiento, cookies de terceros con fines publicitarios y analíticos. Puedes configurar o rechazar estas cookies mediante el banner de configuración. Al continuar navegando sin rechazarlas, consientes su uso. Para más detalles, consulta nuestra <a href="#politica-cookies" style="color:var(--wood-dark);">Política de Cookies</a>.</p>
-    <p><strong>7. Propiedad intelectual.</strong> Los textos y el diseño de la web son originales y se comparten con fines educativos sin ánimo de lucro. Las imágenes pueden estar sujetas a derechos de terceros y se utilizan bajo licencias que permiten su uso.</p>
-</div>
+                <p><strong>1. Finalidad informativa y didáctica.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural. No constituye asesoramiento médico, farmacológico ni terapéutico de ningún tipo.</p>
+                <p><strong>2. No apología del uso de sustancias.</strong> Este sitio no promueve, incita ni recomienda el consumo, cultivo, preparación o administración de ninguna sustancia, planta, extracto o práctica descrita en las medicinas tradicionales mencionadas.</p>
+                <p><strong>3. No sustituye el consejo profesional.</strong> Ningún contenido de esta web debe interpretarse como sustitutivo del diagnóstico, tratamiento o consejo de un profesional sanitario cualificado.</p>
+                <p><strong>4. Exención de responsabilidad.</strong> El titular de la página no se hace responsable del uso que terceros puedan hacer de la información aquí contenida ni de los daños que pudieran derivarse.</p>
+                <p><strong>5. Monetización y publicidad.</strong> Esta web puede mostrar anuncios proporcionados por terceros (p. ej., Google AdSense) para financiar su mantenimiento. Los anunciantes pueden utilizar cookies para mostrar anuncios basados en tus visitas anteriores. La presencia de anuncios no implica recomendación ni aval de los productos o servicios anunciados.</p>
+                <p><strong>6. Privacidad y cookies.</strong> Utilizamos cookies técnicas necesarias para el funcionamiento del sitio y, si prestas tu consentimiento, cookies de terceros con fines publicitarios y analíticos. Puedes configurar o rechazar estas cookies mediante el banner de consentimiento. Para más detalles, consulta nuestra <a href="#politica-cookies" style="color:var(--wood-dark);">Política de Cookies</a>.</p>
+                <p><strong>7. Propiedad intelectual.</strong> Los textos y el diseño de la web son originales y se comparten con fines educativos sin ánimo de lucro. Las imágenes pueden estar sujetas a derechos de terceros y se utilizan bajo licencias que permiten su uso.</p>
+            </div>
             <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
         </div>
     </div>
@@ -566,7 +640,6 @@
             <a data-section="sobre">Sobre la web</a>
         </nav>
 
-        <!-- SECCIÓN: INICIO -->
         <div class="section active" id="section-inicio">
             <h2>🌿 Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
             <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
@@ -614,7 +687,7 @@
 
                 <!-- AYURVEDA -->
                 <div class="card" id="card-ayurveda">
-                    <div class="card-image" style="background-image: url('https://sl.bing.net/jzwnJmoNkZw/seed/curcuma/600/400');">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/curcuma/600/400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
@@ -725,9 +798,9 @@
                     </div>
                 </div>
 
-                <!-- EGIPTO -->
+                <!-- EGIPTO - PIRÁMIDES (IMAGEN CORREGIDA) -->
                 <div class="card" id="card-egipto">
-                    <div class="card-image" style="background-image: url('https://picsum.photos/seed/miel/600/400');">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=600&q=80');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="4"/>
@@ -756,7 +829,7 @@
                             <span class="grade-badge">GRADE: Alto (quemaduras)</span>
                             <p style="margin-top:0.5rem;"><strong>Dato curioso:</strong> Papiro Edwin Smith (~1600 a.C.) ya recomendaba miel para heridas.</p>
                         </div>
-                        <p class="img-credit">📷 Miel de abeja natural</p>
+                        <p class="img-credit">📷 Pirámides de Egipto</p>
                     </div>
                 </div>
             </div>
@@ -831,4 +904,4 @@
 
     <script src="ap.js"></script>
 </body>
-</html>
+</html>    
