@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -199,12 +199,14 @@
         }
 
         .card-image {
-            height: 130px;
+            height: 140px;
             background-color: #e8e0d0;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-size: cover;
+            background-position: center;
         }
 
         .card-image::after {
@@ -213,19 +215,24 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 35px;
+            height: 45px;
             background: linear-gradient(to top, var(--paper), transparent);
         }
 
         .card-image .card-symbol {
-            opacity: 0.12;
-            width: 100px;
-            height: 100px;
+            opacity: 0.2;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 50%;
         }
 
         .card-image .card-symbol svg {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 100%;
         }
 
         .card::before {
@@ -364,6 +371,25 @@
             color: #8a7a6a;
             margin-top: 0.3rem;
             letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            margin-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--wood-medium);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--wood-dark);
         }
 
         .speak-btn {
@@ -520,18 +546,52 @@
 
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
-            <h2>⚠️ Aviso legal y condiciones de uso</h2>
+            <h2>⚠️ Aviso legal y Consentimiento de Privacidad</h2>
             <div class="legal-text">
-                <p><strong>1. Finalidad informativa y didáctica.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural. No constituye asesoramiento médico, farmacológico ni terapéutico de ningún tipo.</p>
-                <p><strong>2. No apología del uso de sustancias.</strong> Este sitio no promueve, incita ni recomienda el consumo, cultivo, preparación o administración de ninguna sustancia, planta, extracto o práctica descrita en las medicinas tradicionales mencionadas.</p>
-                <p><strong>3. No sustituye el consejo profesional.</strong> Ningún contenido de esta web debe interpretarse como sustitutivo del diagnóstico, tratamiento o consejo de un profesional sanitario cualificado.</p>
-                <p><strong>4. Exención de responsabilidad.</strong> El titular de la página no se hace responsable del uso que terceros puedan hacer de la información aquí contenida.</p>
-                <p><strong>5. Privacidad y cookies.</strong> Esta página no recopila datos personales ni utiliza cookies de seguimiento.</p>
-                <p><strong>6. Propiedad intelectual.</strong> Los textos y el diseño de la web son originales y se comparten con fines educativos sin ánimo de lucro.</p>
+                <p><strong>1. Finalidad informativa y didáctica.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural. No constituye asesoramiento médico, farmacológico ni terapéutico de ningún tipo. Ningún contenido sustituye el diagnóstico de un profesional sanitario.</p>
+                <p><strong>2. Uso de cookies y Monetización.</strong> Este sitio web utiliza cookies propias y de terceros proveedores (como redes de publicidad y plataformas de monetización) para recopilar información técnica básica e identificar tendencias de tráfico de manera anónima, con la finalidad de gestionar la publicidad mostrada.</p>
+                <p><strong>3. Control del usuario.</strong> Al pulsar "Aceptar y continuar", consientes la instalación de estas cookies de análisis y monetización. Puedes retirar tu consentimiento eliminando las cookies en la configuración de tu navegador en cualquier momento.</p>
+                <p><strong>4. Exención de responsabilidad.</strong> El titular de la página no se hace responsable del uso directo o indirecto que terceros puedan hacer de la información aquí expuesta.</p>
             </div>
             <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
         </div>
     </div>
+
+    <div class="legal-overlay" id="avisoLegalModal" style="display:none;">
+        <div class="legal-modal">
+            <h2>Aviso Legal</h2>
+            <div class="legal-text">
+                <p><strong>Responsable del sitio web:</strong> LópezTools&Book's™</p>
+                <p><strong>Contacto:</strong> Para cualquier consulta, puede contactar con nosotros a través del canal oficial habilitado en la sección "Sobre la web".</p>
+                <p><strong>Condiciones:</strong> El acceso a este sitio web atribuye la condición de USUARIO, que acepta los términos de uso aquí reflejados. Los contenidos expuestos están protegidos por derechos de autor intelectual compartidos con fines educativos.</p>
+            </div>
+            <button class="btn-accept" onclick="document.getElementById('avisoLegalModal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="legal-overlay" id="politicaPrivacidadModal" style="display:none;">
+        <div class="legal-modal">
+            <h2>Política de Privacidad</h2>
+            <div class="legal-text">
+                <p><strong>Tratamiento de Datos:</strong> Este sitio web respeta el Reglamento General de Protección de Datos (RGPD). No recopilamos de forma directa datos sensibles del usuario (como nombres o correos) salvo navegación técnica automatizada.</p>
+                <p><strong>Terceros:</strong> Trabajamos con plataformas de monetización y analítica publicitaria que pueden registrar identificadores únicos no nominativos para procesar anuncios relevantes. Tienes derecho a limitar este rastreo configurando las opciones de privacidad de tu dispositivo o navegador web.</p>
+            </div>
+            <button class="btn-accept" onclick="document.getElementById('politicaPrivacidadModal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="legal-overlay" id="politicaCookiesModal" style="display:none;">
+        <div class="legal-modal">
+            <h2>Política de Cookies</h2>
+            <div class="legal-text">
+                <p><strong>¿Qué son las cookies?</strong> Son pequeños archivos de texto que se descargan en tu navegador al acceder a páginas web.</p>
+                <p><strong>Uso en esta web:</strong> Usamos cookies técnicas imprescindibles para recordar si aceptaste el aviso inicial, y cookies de terceros vinculadas a redes publicitarias para optimizar e integrar espacios publicitarios de forma correcta.</p>
+                <p><strong>Desactivación:</strong> El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración del navegador de internet.</p>
+            </div>
+            <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+
 
     <div class="container" id="main-content">
         <header class="header">
@@ -558,16 +618,14 @@
             <a data-section="sobre">Sobre la web</a>
         </nav>
 
-        <!-- SECCIÓN: INICIO -->
         <div class="section active" id="section-inicio">
             <h2>🌿 Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
             <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-inicio', this)">🔊 Escuchar toda la sección</button>
 
             <div class="cards-grid">
-                <!-- CHINA -->
                 <div class="card" id="card-china">
-                    <div class="card-image china">
+                    <div class="card-image china" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="42" y="2" width="16" height="96" fill="#000" />
@@ -602,9 +660,8 @@
                     </div>
                 </div>
 
-                <!-- AYURVEDA -->
                 <div class="card" id="card-ayurveda">
-                    <div class="card-image ayurveda">
+                    <div class="card-image ayurveda" style="background-image: url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
@@ -637,9 +694,8 @@
                     </div>
                 </div>
 
-                <!-- ZULÚ -->
                 <div class="card" id="card-zulu">
-                    <div class="card-image africa">
+                    <div class="card-image africa" style="background-image: url('https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
@@ -677,9 +733,8 @@
                     </div>
                 </div>
 
-                <!-- PERSA -->
                 <div class="card" id="card-persia">
-                    <div class="card-image persia">
+                    <div class="card-image persia" style="background-image: url('https://images.unsplash.com/photo-1505575967455-40e256f7377c?auto=format&fit=crop&q=80&w=400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="50" cy="50" r="30" fill="none" stroke="#000" stroke-width="5"/>
@@ -712,9 +767,8 @@
                     </div>
                 </div>
 
-                <!-- EGIPTO -->
                 <div class="card" id="card-egipto">
-                    <div class="card-image egypt">
+                    <div class="card-image egypt" style="background-image: url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=400');">
                         <div class="card-symbol">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="4"/>
@@ -748,7 +802,6 @@
             </div>
         </div>
 
-        <!-- SECCIÓN: MEDICINAS -->
         <div class="section" id="section-medicinas">
             <h2>🌍 Medicinas tradicionales estudiadas</h2>
             <p>Estas son las cinco tradiciones médicas antiguas que hemos analizado con rigor científico.</p>
@@ -762,7 +815,6 @@
             </ul>
         </div>
 
-        <!-- SECCIÓN: ARTÍCULOS -->
         <div class="section" id="section-articulos">
             <h2>📚 Artículos publicados</h2>
             <p>Próximamente encontrarás aquí artículos completos sobre cada hallazgo científico.</p>
@@ -776,7 +828,6 @@
             </ul>
         </div>
 
-        <!-- SECCIÓN: DEL PAPIRO AL LABORATORIO -->
         <div class="section" id="section-papiro">
             <h2>🔬 Del papiro al laboratorio</h2>
             <p>El viaje de los remedios ancestrales hasta el ensayo clínico moderno.</p>
@@ -789,7 +840,6 @@
             </ul>
         </div>
 
-        <!-- SECCIÓN: SOBRE LA WEB -->
         <div class="section" id="section-sobre">
             <h2>📖 Sobre Salud Ancestral</h2>
             <p>Este proyecto nace para tender puentes entre el conocimiento ancestral y la evidencia científica moderna.</p>
@@ -806,6 +856,12 @@
         <footer class="footer">
             🎍 Salud Ancestral — Evidencia que conecta tradición y ciencia · Actualizado 2026
             <p class="footer-byline">by LópezTools&Book's™</p>
+            
+            <div class="footer-links">
+                <a onclick="document.getElementById('avisoLegalModal').style.display='flex'">Aviso Legal</a>
+                <a onclick="document.getElementById('politicaPrivacidadModal').style.display='flex'">Política de Privacidad</a>
+                <a onclick="document.getElementById('politicaCookiesModal').style.display='flex'">Política de Cookies</a>
+            </div>
         </footer>
     </div>
 
@@ -815,6 +871,24 @@
         </svg>
     </button>
 
+    <script>
+        // Lógica para controlar la aceptación del consentimiento inicial y cookies
+        document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.getElementById("legalOverlay");
+            var btnAccept = document.getElementById("acceptLegalBtn");
+
+            // Comprobar si el usuario ya aceptó previamente las cookies
+            if (!localStorage.getItem("cookiesAceptadas")) {
+                overlay.classList.add("show");
+            }
+
+            btnAccept.addEventListener("click", function() {
+                localStorage.setItem("cookiesAceptadas", "true");
+                overlay.classList.remove("show");
+            });
+        });
+    </script>
     <script src="ap.js"></script>
 </body>
 </html>
+      
