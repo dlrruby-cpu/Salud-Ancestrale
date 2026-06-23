@@ -1,68 +1,41 @@
-// Objeto Global para evitar colisiones de alcance
-const SaludAncestral = {
-    speechInstance: null,
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Navegación entre pestañas
+    const navLinks = document.querySelectorAll('#mainNav a');
+    const sections = document.querySelectorAll('.section');
 
-    init: function() {
-        this.setupNavigation();
-        this.setupLegalModal();
-        this.setupFloatingAudioButton();
-    },
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetSection = this.getAttribute('data-section');
 
-    // Navegación interactiva por secciones de la app
-    setupNavigation: function() {
-        const navLinks = document.querySelectorAll('#mainNav a');
-        const sections = document.querySelectorAll('.section');
+            // Detener audios al cambiar de pestaña
+            window.speechSynthesis.cancel();
+            resetAudio();
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetSection = link.getAttribute('data-section');
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
 
-                // Detener cualquier audio al cambiar de pestaña
-                window.speechSynthesis.cancel();
-                this.resetAudioButtons();
-
-                // Quitar estados activos
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-
-                // Activar pestaña elegida
-                link.classList.add('active');
-                document.getElementById(`section-${targetSection}`).classList.add('active');
-            });
+            this.classList.add('active');
+            document.getElementById('section-' + targetSection).classList.add('active');
         });
-    },
+    });
 
-    // Gestión del aviso legal obligatorio
-    setupLegalModal: function() {
-        const overlay = document.getElementById('legalOverlay');
-        const acceptBtn = document.getElementById('acceptLegalBtn');
+    // 2. Control del Aviso Legal Obligatorio
+    const overlay = document.getElementById('legalOverlay');
+    const acceptBtn = document.getElementById('acceptLegalBtn');
 
-        // Mostrar el modal si no ha sido aceptado con anterioridad
+    if (overlay && acceptBtn) {
         if (!localStorage.getItem('legalAccepted')) {
             overlay.classList.add('show');
         }
 
-        acceptBtn.addEventListener('click', () => {
+        acceptBtn.addEventListener('click', function() {
             localStorage.setItem('legalAccepted', 'true');
             overlay.classList.remove('show');
         });
-    },
+    }
 
-    // Botón flotante derecho de lectura global
-    setupFloatingAudioButton: function() {
-        const floatBtn = document.getElementById('speakButton');
-        floatBtn.addEventListener('click', () => {
-            // Encuentra qué sección está visible actualmente en pantalla
-            const activeSection = document.querySelector('.section.active');
-            if (activeSection) {
-                const sectionId = activeSection.getAttribute('id');
-                this.speakSection(sectionId, floatBtn);
-            }
-        });
-    },
-
-    // Desplegar información oculta de las tarjetas
-    toggleDetails: function(detailId, button) {
+    // 3. Funciones del Sistema de Audio y Despliegues (Variables Globales para el HTML)
+    window.toggleDetails = function(detailId, button) {
         const detailBlock = document.getElementById(detailId);
         if (detailBlock.classList.contains('show')) {
             detailBlock.classList.remove('show');
@@ -71,68 +44,68 @@ const SaludAncestral = {
             detailBlock.classList.add('show');
             button.textContent = "Ocultar estudio -";
         }
-    },
+    };
 
-    // Detener clases visuales activas de los audios
-    resetAudioButtons: function() {
-        document.querySelectorAll('.btn-audio, .section-speak-btn, .speak-btn').forEach(btn => {
-            btn.classList.remove('playing');
-        });
-    },
+    function resetAudio() {
+        const playingElements = document.querySelectorAll('.playing');
+        playingElements.forEach(el => el.classList.remove('playing'));
+    }
 
-    // Sintetizar el texto y leerlo en voz alta
-    speakText: function(text, buttonElement) {
+    function speakText(text, btn) {
         window.speechSynthesis.cancel();
-
-        if (buttonElement.classList.contains('playing')) {
-            this.resetAudioButtons();
+        
+        if (btn.classList.contains('playing')) {
+            resetAudio();
             return;
         }
 
-        this.resetAudioButtons();
+        resetAudio();
 
-        this.speechInstance = new SpeechSynthesisUtterance(text);
-        this.speechInstance.lang = 'es-ES';
-        this.speechInstance.rate = 1.0;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
 
-        this.speechInstance.onstart = () => {
-            buttonElement.classList.add('playing');
+        utterance.onstart = function() {
+            btn.classList.add('playing');
+        };
+        utterance.onend = function() {
+            btn.classList.remove('playing');
+        };
+        utterance.onerror = function() {
+            btn.classList.remove('playing');
         };
 
-        this.speechInstance.onend = () => {
-            buttonElement.classList.remove('playing');
-        };
+        window.speechSynthesis.speak(utterance);
+    }
 
-        this.speechInstance.onerror = () => {
-            buttonElement.classList.remove('playing');
-        };
-
-        window.speechSynthesis.speak(this.speechInstance);
-    },
-
-    // Lector de una tarjeta en concreto
-    speakCard: function(cardId, button) {
+    window.speakCard = function(cardId, button) {
         const card = document.getElementById(cardId);
         const title = card.querySelector('.medicine-name').innerText;
         const preview = card.querySelector('.curiosity-preview').innerText;
         const details = card.querySelector('.details').innerText;
         
-        const fullText = `${title}. ${preview}. Detalles del estudio clínico: ${details}`;
-        this.speakText(fullText, button);
-    },
+        const fullText = title + ". " + preview + ". Detalles del estudio clínico: " + details;
+        speakText(fullText, button);
+    };
 
-    // Lector completo de la sección abierta
-    speakSection: function(sectionId, button) {
+    window.speakSection = function(sectionId, button) {
         const section = document.getElementById(sectionId);
-        // Filtra los botones y textos técnicos para que la lectura sea fluida
         const clonedSection = section.cloneNode(true);
+        
+        // Limpiar botones y créditos antes de leer la sección
         clonedSection.querySelectorAll('button, .img-credit, style, script').forEach(el => el.remove());
         
-        this.speakText(clonedSection.innerText, button);
-    }
-};
+        speakText(clonedSection.innerText, button);
+    };
 
-// Arrancar al cargar el documento
-document.addEventListener('DOMContentLoaded', () => {
-    SaludAncestral.init();
+    // Botón flotante derecho
+    const speakBtn = document.getElementById('speakButton');
+    if (speakBtn) {
+        speakBtn.addEventListener('click', function() {
+            const activeSection = document.querySelector('.section.active');
+            if (activeSection) {
+                const sectionId = activeSection.getAttribute('id');
+                speakSection(sectionId, speakBtn);
+            }
+        });
+    }
 });
