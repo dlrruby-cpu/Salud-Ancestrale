@@ -1,198 +1,100 @@
-/**
- * Salud Ancestral
- * by LópezTools&Book's™
- * 
- * Funciones expuestas:
- *   SaludAncestral.toggleDetails(id, btn)     → expandir/colapsar estudio
- *   SaludAncestral.speakCard(cardId, btn)     → leer solo una tarjeta
- *   SaludAncestral.speakSection(sectionId, btn) → leer toda una sección
- */
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Navegación
+    const navLinks = document.querySelectorAll('#mainNav a');
+    const sections = document.querySelectorAll('.section');
 
-window.SaludAncestral = {};
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetSection = this.getAttribute('data-section');
 
-// ============ NAVEGACIÓN ENTRE SECCIONES ============
-(function() {
-    var navLinks = document.querySelectorAll('#mainNav a');
-    var sections = document.querySelectorAll('.section');
+            window.speechSynthesis.cancel();
+            resetAudio();
 
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            var sectionId = this.getAttribute('data-section');
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
 
-            navLinks.forEach(function(l) { l.classList.remove('active'); });
             this.classList.add('active');
-
-            sections.forEach(function(s) { s.classList.remove('active'); });
-            var target = document.getElementById('section-' + sectionId);
-            if (target) {
-                target.classList.add('active');
-            }
+            document.getElementById('section-' + targetSection).classList.add('active');
         });
     });
-})();
 
-// ============ EXPANDIR DETALLES ============
-SaludAncestral.toggleDetails = function(id, btn) {
-    var detailDiv = document.getElementById(id);
-    if (detailDiv.classList.contains('show')) {
-        detailDiv.classList.remove('show');
-        btn.textContent = 'Ver estudio +';
-    } else {
-        detailDiv.classList.add('show');
-        btn.textContent = 'Ocultar -';
+    // 2. Aviso Legal
+    const overlay = document.getElementById('legalOverlay');
+    const acceptBtn = document.getElementById('acceptLegalBtn');
+
+    if (!localStorage.getItem('legalAccepted')) {
+        overlay.classList.add('show');
     }
-};
 
-// ============ AVISO LEGAL ============
-var legalOverlay = document.getElementById('legalOverlay');
-var acceptBtn = document.getElementById('acceptLegalBtn');
-var legalAccepted = false;
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('legalAccepted', 'true');
+        overlay.classList.remove('show');
+    });
 
-setTimeout(function() {
-    if (!legalAccepted) {
-        legalOverlay.classList.add('show');
+    // 3. Audio
+    window.toggleDetails = function(detailId, button) {
+        const detailBlock = document.getElementById(detailId);
+        if (detailBlock.classList.contains('show')) {
+            detailBlock.classList.remove('show');
+            button.textContent = "Ver estudio +";
+        } else {
+            detailBlock.classList.add('show');
+            button.textContent = "Ocultar estudio -";
+        }
+    };
+
+    function resetAudio() {
+        const playingElements = document.querySelectorAll('.playing');
+        playingElements.forEach(el => el.classList.remove('playing'));
     }
-}, 6000);
 
-acceptBtn.addEventListener('click', function() {
-    legalAccepted = true;
-    legalOverlay.classList.remove('show');
+    function speakText(text, btn) {
+        window.speechSynthesis.cancel();
+        resetAudio();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+
+        utterance.onstart = function() {
+            btn.classList.add('playing');
+        };
+        utterance.onend = function() {
+            btn.classList.remove('playing');
+        };
+        utterance.onerror = function() {
+            btn.classList.remove('playing');
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    window.speakCard = function(cardId, button) {
+        const card = document.getElementById(cardId);
+        const title = card.querySelector('.medicine-name').innerText;
+        const preview = card.querySelector('.curiosity-preview').innerText;
+        const details = card.querySelector('.details').innerText;
+        
+        const fullText = title + ". " + preview + ". Detalles del estudio clínico: " + details;
+        speakText(fullText, button);
+    };
+
+    window.speakSection = function(sectionId, button) {
+        const section = document.getElementById(sectionId);
+        const clonedSection = section.cloneNode(true);
+        
+        clonedSection.querySelectorAll('button, .img-credit, style, script').forEach(el => el.remove());
+        
+        speakText(clonedSection.innerText, button);
+    };
+
+    const speakBtn = document.getElementById('speakButton');
+    if (speakBtn) {
+        speakBtn.addEventListener('click', function() {
+            const activeSection = document.querySelector('.section.active');
+            if (activeSection) {
+                const sectionId = activeSection.getAttribute('id');
+                speakSection(sectionId, speakBtn);
+            }
+        });
+    }
 });
-
-// ============ LECTOR DE VOZ UNIFICADO ============
-(function() {
-    var availableVoices = [];
-    var voicesReady = false;
-    var currentUtterance = null;
-    var currentButton = null;
-
-    function initVoices() {
-        availableVoices = speechSynthesis.getVoices();
-        if (availableVoices.length > 0) {
-            voicesReady = true;
-        }
-    }
-
-    initVoices();
-    speechSynthesis.addEventListener('voiceschanged', initVoices);
-
-    function getSpanishVoice() {
-        if (!voicesReady || availableVoices.length === 0) {
-            initVoices();
-        }
-
-        var voice = null;
-        for (var i = 0; i < availableVoices.length; i++) {
-            if (availableVoices[i].lang === 'es-MX') { voice = availableVoices[i]; break; }
-        }
-        if (voice) return voice;
-        for (var i = 0; i < availableVoices.length; i++) {
-            if (availableVoices[i].lang === 'es-US') { voice = availableVoices[i]; break; }
-        }
-        if (voice) return voice;
-        for (var i = 0; i < availableVoices.length; i++) {
-            if (availableVoices[i].lang.indexOf('es') === 0) { voice = availableVoices[i]; break; }
-        }
-        if (voice) return voice;
-        return availableVoices.length > 0 ? availableVoices[0] : null;
-    }
-
-    function stopAll() {
-        if (currentUtterance) {
-            speechSynthesis.cancel();
-            currentUtterance = null;
-        }
-        var allAudioBtns = document.querySelectorAll('.btn-audio, .section-speak-btn');
-        allAudioBtns.forEach(function(b) {
-            b.classList.remove('playing');
-            if (b.classList.contains('section-speak-btn')) {
-                b.textContent = '🔊 Escuchar toda la sección';
-            } else if (b.classList.contains('btn-audio')) {
-                b.textContent = '🔊 Escuchar estudio';
-            }
-        });
-        var floatBtn = document.getElementById('speakButton');
-        if (floatBtn) floatBtn.classList.remove('playing');
-        currentButton = null;
-    }
-
-    function speakText(text, btnElement, originalText) {
-        if (currentUtterance && currentButton === btnElement) {
-            stopAll();
-            return;
-        }
-
-        stopAll();
-
-        if (!legalAccepted && legalOverlay.classList.contains('show')) return;
-
-        if (!text || text.trim() === '') return;
-
-        var voice = getSpanishVoice();
-        if (!voice) {
-            alert('No se encontraron voces en español. Prueba con Chrome o Edge.');
-            return;
-        }
-
-        speechSynthesis.cancel();
-
-        currentUtterance = new SpeechSynthesisUtterance(text);
-        currentUtterance.voice = voice;
-        currentUtterance.lang = voice.lang;
-        currentUtterance.rate = 0.9;
-        currentUtterance.pitch = 1;
-        currentUtterance.volume = 1;
-
-        if (btnElement) {
-            btnElement.classList.add('playing');
-            btnElement.textContent = '⏹ Detener';
-            currentButton = btnElement;
-        }
-
-        currentUtterance.onstart = function() {
-            var floatBtn = document.getElementById('speakButton');
-            if (floatBtn) floatBtn.classList.add('playing');
-        };
-
-        currentUtterance.onend = function() {
-            stopAll();
-        };
-
-        currentUtterance.onerror = function() {
-            stopAll();
-        };
-
-        speechSynthesis.speak(currentUtterance);
-    }
-
-    SaludAncestral.speakCard = function(cardId, btnElement) {
-        var card = document.getElementById(cardId);
-        if (!card) return;
-        var text = card.innerText;
-        speakText(text, btnElement, '🔊 Escuchar estudio');
-    };
-
-    SaludAncestral.speakSection = function(sectionId, btnElement) {
-        var section = document.getElementById(sectionId);
-        if (!section) return;
-        var text = section.innerText;
-        speakText(text, btnElement, '🔊 Escuchar toda la sección');
-    };
-
-    var speakBtn = document.getElementById('speakButton');
-    speakBtn.addEventListener('click', function() {
-        if (currentUtterance) {
-            stopAll();
-            return;
-        }
-        var activeSection = document.querySelector('.section.active');
-        if (activeSection) {
-            var sectionBtn = activeSection.querySelector('.section-speak-btn');
-            SaludAncestral.speakSection(activeSection.id, sectionBtn);
-        }
-    });
-
-    window.addEventListener('beforeunload', function() {
-        if (currentUtterance) speechSynthesis.cancel();
-    });
-})();
