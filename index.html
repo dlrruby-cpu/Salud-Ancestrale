@@ -933,7 +933,7 @@
         // La música arranca de manera fluida y suave al pulsar el botón del aviso legal obligatorio
         document.getElementById("acceptLegalBtn").addEventListener("click", function() {
             var audio = document.getElementById("bgMusic");
-            audio.volume = 0.10; // Hilo musical sutil al 10% para no pisar tu ap.js
+            audio.volume = 0.05; // Hilo musical sutil al 10% para no pisar tu ap.js
             audio.play().catch(function(e) {
                 console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
             });
