@@ -630,6 +630,33 @@
             <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
         </div>
     </div>
+    
+    <div class="emoji-logo-container">
+    <img src="RUTA_DE_TU_IMAGEN/emoji-salud-ancestrale.png" alt="Emoji Salud Ancestrale" class="emoji-logo">
+</div>
+
+<style>
+/* Estilos para que se comporte exactamente como un emoji en el menú superior */
+.emoji-logo-container {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.emoji-logo {
+    width: 24px;      /* Tamaño estándar de un emoji en barra superior */
+    height: 24px;     /* Mantiene la proporción cuadrada */
+    object-fit: contain;
+    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.15)); /* Le da un ligero volumen */
+    transition: transform 0.2s ease;
+}
+
+/* Efecto sutil al pasar el ratón por encima */
+.emoji-logo:hover {
+    transform: scale(1.1);
+}
+</style>
+
 
     <div class="container" id="main-content">
         <header class="header">
