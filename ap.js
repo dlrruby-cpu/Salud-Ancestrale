@@ -1,6 +1,5 @@
     }
-
-    // Función genérica para leer texto
+// Función genérica para leer texto
     function speakText(text, btnElement, originalText) {
         if (currentUtterance && currentButton === btnElement) {
             // Si pulsamos el mismo botón, detenemos
