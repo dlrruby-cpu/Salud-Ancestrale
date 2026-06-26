@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Salud Ancestral - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios tradicionales antiguas milenariad a.C.">
+    <meta name="description" content="Salud Ancestral - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios tradiciones antiguas milenariad a.C.">
     <meta name="author" content="López's Tools&Books">
     <title>Salud Ancestrale | Explora curiosidades científicas de la salud ancestral. Desde la acupuntura hasta la miel egipcia, analizamos qué dice la ciencia hoy sobre los remedios de siempre.</title>
 
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Salud Ancestrale",
-      "url": "https://dlrruby-cpu.github.io/Salud-Ancestrale/"
+      "url": "https://dlrruby-cpu.github.io/Salud-Ancestrale/",
       "author": {
         "@type": "Organization",
         "name": "Ruby's Tool&Books"
@@ -112,14 +112,19 @@
             border-radius: 2px;
         }
 
-        .logo-icon {
-            display: block;
-            margin: 0 auto 0.2rem;
+        /* Estilos del nuevo Logotipo Emoji Centrado */
+        .logo-cenital {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
-        .logo-icon svg {
-            width: 70px;
-            height: 70px;
+        .logo-imagen {
+            max-width: 90px; /* Tamaño ideal tipo emoji/icono superior */
+            height: auto;
+            display: inline-block;
+            filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.12));
         }
 
         h1 {
@@ -629,40 +634,12 @@
             </div>
             <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
         </div>
-    <<div class="logo-cenital">
-    <img src="emoji-salud-ancestrale-.png" alt="Logotipo Salud Ancestrale" class="logo-imagen">
-</div>
-
-<style>
-.logo-cenital {
-    text-align: center;
-    width: 100%;
-    margin-top: 20px; /* Ajusta este valor si necesitas más o menos espacio arriba */
-    margin-bottom: 20px;
-}
-
-.logo-imagen {
-    max-width: 180px; /* Ajusta el tamaño máximo de tu logotipo */
-    height: auto;
-    display: inline-block;
-}
-</style>
-    
-    
-
+    </div>
 
     <div class="container" id="main-content">
         <header class="header">
-            <div class="logo-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="50" y1="98" x2="50" y2="60" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-                    <path d="M50 55 C50 20, 5 15, 15 40 C25 60, 35 55, 40 48 C42 52, 42 60, 50 65 C58 60, 58 52, 60 48 C65 55, 75 60, 85 40 C95 15, 50 20, 50 55 Z" fill="#000" stroke="none"/>
-                    <circle cx="30" cy="38" r="5" fill="#fcf9f2"/>
-                    <circle cx="65" cy="35" r="4.5" fill="#fcf9f2"/>
-                    <circle cx="48" cy="30" r="4" fill="#fcf9f2"/>
-                    <circle cx="30" cy="50" r="3.5" fill="#fcf9f2"/>
-                    <circle cx="68" cy="48" r="3" fill="#fcf9f2"/>
-                </svg>
+            <div class="logo-cenital">
+                <img src="emoji-salud-ancestrale-.png" alt="Logotipo Salud Ancestrale" class="logo-imagen">
             </div>
             <h1>SALUD ANCESTRALE</h1>
             <p class="subtitle">Donde la ciencia escucha a los ancestros</p>
@@ -711,7 +688,7 @@
                         <div id="china-detail" class="details">
                             <p><span class="highlight">Estudio:</span> Vickers et al., <em>Arch Intern Med</em> 2012. Metaanálisis de datos individuales de <strong>17.922 pacientes</strong> (29 ECAs).</p>
                             <p><span class="highlight">Lugares:</span> EE.UU., Alemania, Reino Unido, España.</p>
-                            <p><span class="highlight">Resultado:</span> Diferencia significativa entre acupuntura real vs. simulada (p<0.001). Efecto mantenido a 12 meses.</p>
+                            <p><span class="highlight">Resultado:</span> Diferencia significativa entre acupuntura real vs. simulada (p&lt;0.001). Efecto mantenido a 12 meses.</p>
                             <span class="grade-badge">GRADE: Moderado</span>
                             <p style="margin-top:0.5rem;"><strong>Dato extra:</strong> El punto P6 reduce vómitos post-quimio (Cochrane, certeza ALTA).</p>
                         </div>
@@ -951,10 +928,9 @@
     </audio>
 
     <script>
-        // La música arranca de manera fluida y suave al pulsar el botón del aviso legal obligatorio
         document.getElementById("acceptLegalBtn").addEventListener("click", function() {
             var audio = document.getElementById("bgMusic");
-            audio.volume = 0.10; // Hilo musical sutil al 10% para que no altere tu ap.js (Cámbialo aquí si quieres más volumen)
+            audio.volume = 0.10;
             audio.play().catch(function(e) {
                 console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
             });
@@ -962,5 +938,3 @@
     </script>
 </body>
 </html>
-
-        
