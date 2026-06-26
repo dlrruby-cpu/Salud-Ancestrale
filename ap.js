@@ -8,7 +8,7 @@
  *   SaludAncestral.speakSection(sectionId, btn) → leer toda una sección
  */
 
-window.SaludAncestral = {};
+window.SaludAncestrale= {};
 
 // ============ NAVEGACIÓN ENTRE SECCIONES ============
 (function() {
@@ -146,7 +146,7 @@ acceptBtn.addEventListener('click', function() {
         currentUtterance.lang = voice.lang;
         currentUtterance.rate = 0.9;
         currentUtterance.pitch = 1;
-        currentUtterance.volume = 1;
+        currentUtterance.volume = 0.5;
 
         // Marcar botón como activo
         if (btnElement) {
