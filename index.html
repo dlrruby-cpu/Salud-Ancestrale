@@ -608,7 +608,7 @@
         <div class="legal-modal">
             <h2>Aviso Legal</h2>
             <div class="legal-text">
-                <p><strong>Titular:</strong>Ruby's Tool&Books™</p>
+                <p><strong>Titular:</strong>Ruby's Lab™</p>
                 <p><strong>Finalidad:</strong> Investigación informativa y didáctica sin fines médicos directos. Los contenidos 
                      y diseños originales están amparados por derechos de propiedad compartida educativa.</p>
             </div>
@@ -876,7 +876,7 @@
         </div>
 
         <div class="section" id="section-sobre">
-            <h2>ℹ️ Sobre Salud Ancestrale</h2>
+            <h2>Sobre Salud Ancestrale</h2>
             <p>Este proyecto nace para tender puentes entre el conocimiento ancestral y la evidencia científica moderna.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-sobre', this)">🔊 Escuchar toda la sección</button>
             <ul class="about-list">
@@ -925,13 +925,13 @@
     <script src="ap.js"></script>
 
     <audio id="bgMusic" loop>
-        <source src="musica-relax.mp3" type="audio/mpeg">
+        <source src="relaxwaves-dalorex.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         document.getElementById("acceptLegalBtn").addEventListener("click", function() {
             var audio = document.getElementById("bgMusic");
-            audio.volume = 0.10;
+            audio.volume = 0.05;
             audio.play().catch(function(e) {
                 console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
             });
