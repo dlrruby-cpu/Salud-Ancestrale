@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'es-ES';
-            utterance.rate = 0.9;
+            utterance.rate = 0.7;
             window.speechSynthesis.speak(utterance);
         });
     });
