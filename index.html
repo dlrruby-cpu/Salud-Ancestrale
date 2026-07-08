@@ -1,6 +1,4 @@
-
-
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -62,6 +60,7 @@
             --paper: #fcf9f2;
             --border-radius: 12px;
             --transition: all 0.3s ease;
+            --paypal-blue: #003087;
         }
 
         * {
@@ -407,6 +406,56 @@
             margin: 0.3rem 0;
         }
 
+        .donate-container {
+            text-align: center;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(58, 43, 26, 0.05) 0%, rgba(181, 200, 156, 0.05) 100%);
+            border-radius: 15px;
+            border: 2px solid var(--bamboo-light);
+        }
+
+        .donate-container h3 {
+            font-family: 'Georgia', serif;
+            color: var(--wood-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .donate-container p {
+            color: #5a4a3a;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-paypal {
+            background: var(--paypal-blue);
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 48, 135, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-paypal:hover {
+            background: #001f5c;
+            box-shadow: 0 6px 18px rgba(0, 48, 135, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-paypal svg {
+            width: 24px;
+            height: 24px;
+        }
+
         .footer {
             text-align: center;
             margin-top: 3rem;
@@ -532,6 +581,15 @@
             color: var(--wood-dark);
         }
 
+        .legal-text ul {
+            margin-left: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-text li {
+            margin-bottom: 0.4rem;
+        }
+
         .btn-accept {
             background: var(--wood-dark);
             color: white;
@@ -544,12 +602,30 @@
             transition: all 0.3s;
             letter-spacing: 0.5px;
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            margin-right: 0.5rem;
         }
 
         .btn-accept:hover {
             background: #2a1d0e;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-reject {
+            background: #999;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-reject:hover {
+            background: #777;
         }
 
         .about-list {
@@ -588,6 +664,13 @@
             .legal-modal {
                 padding: 1.5rem;
             }
+            .btn-paypal {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .btn-accept, .btn-reject {
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -596,13 +679,27 @@
 
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
-            <h2>⚠️ Aviso legal y Consentimiento de Privacidad</h2>
+            <h2>⚠️ Consentimiento de Privacidad y Cookies</h2>
             <div class="legal-text">
-                <p><strong>1. Finalidad informativa.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural de la medicina tradicional antigua. No constituye asesoramiento médico.</p>
-                <p><strong>2. Uso de cookies y Monetización.</strong> Este sitio web utiliza cookies propias y de terceros (redes publicitarias y analíticas) para procesar datos básicos de navegación y ofrecer contenido relevante acorde a sus intereses.</p>
-                <p><strong>3. Aceptación.</strong> Al presionar el botón de abajo, acepta el uso de estas tecnologías de optimización técnica de anuncios.</p>
+                <p><strong>1. Finalidad informativa y educativa.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación científica sobre medicinas tradicionales antiguas. No constituye consejo médico profesional ni prescripción. Consulte siempre a profesionales sanitarios cualificados antes de utilizar cualquier remedio mencionado.</p>
+                
+                <p><strong>2. Recopilación de datos y privacidad.</strong> Este sitio web cumple estrictamente con el RGPD (Reglamento General de Protección de Datos) de la Unión Europea. No recopilamos datos personales directos. Las cookies y tecnologías de terceros se utilizan únicamente para:</p>
+                <ul>
+                    <li>Analytics: Comprender el comportamiento de los usuarios de forma anónima</li>
+                    <li>Publicidad personalizada: Mostrar anuncios relevantes mediante redes publicitarias asociadas</li>
+                    <li>Mejora técnica: Optimizar la experiencia de usuario</li>
+                </ul>
+
+                <p><strong>3. Cookies y tecnologías de seguimiento.</strong> Utilizamos cookies propias y de terceros (Google Analytics, redes de monetización). Puede rechazar, bloquear o eliminar cookies en la configuración de su navegador. El rechazo no afectará a la funcionalidad básica del sitio.</p>
+
+                <p><strong>4. Monetización y donaciones.</strong> Este sitio incluye botones de donación vía PayPal y anuncios publicitarios. Las donaciones son completamente opcionales y voluntarias. Los fondos se utilizan para mantener y mejorar los contenidos.</p>
+
+                <p><strong>5. Aceptación informada.</strong> Al presionar "Aceptar", usted consiente el uso de cookies, análisis y publicidad personalizada. Puede revocar este consentimiento en cualquier momento mediante la configuración de su navegador.</p>
             </div>
-            <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
+            <div style="text-align: center;">
+                <button class="btn-accept" id="acceptLegalBtn">✓ Aceptar y continuar</button>
+                <button class="btn-reject" id="rejectLegalBtn">✕ Rechazar</button>
+            </div>
         </div>
     </div>
 
@@ -610,11 +707,23 @@
         <div class="legal-modal">
             <h2>Aviso Legal</h2>
             <div class="legal-text">
-                <p><strong>Titular:</strong>Ruby's Lab™</p>
-                <p><strong>Finalidad:</strong> Investigación informativa y didáctica sin fines médicos directos. Los contenidos 
-                     y diseños originales están amparados por derechos de propiedad compartida educativa.</p>
+                <p><strong>Titular del sitio:</strong> RubyTools Instruments™ (RUBY's Lab)</p>
+                
+                <p><strong>Finalidad:</strong> Investigación informativa, didáctica y divulgación científica sin intención de proporcionar consejo médico directo. Los contenidos y diseños originales están protegidos por derechos de autor.</p>
+
+                <p><strong>Limitación de responsabilidad:</strong> La información proporcionada es de carácter educativo. El autor no se responsabiliza de:</p>
+                <ul>
+                    <li>Diagnósticos, tratamientos o recomendaciones médicas personales</li>
+                    <li>Daños derivados del uso o mal uso de la información presentada</li>
+                    <li>Reacciones alérgicas o efectos secundarios</li>
+                    <li>Interacciones medicamentosas no mencionadas</li>
+                </ul>
+
+                <p><strong>Recomendación:</strong> Consulte siempre con un profesional sanitario licenciado antes de iniciar cualquier tratamiento basado en medicina tradicional.</p>
+
+                <p><strong>Enlaces externos:</strong> Este sitio puede contener enlaces a terceros. No nos responsabilizamos por el contenido externo ni por políticas de privacidad ajenas.</p>
             </div>
-            <button class="btn-accept" onclick="document.getElementById('avisoLegalModal').style.display='none'">Cerrar</button>
+            <button class="btn-accept" onclick="document.getElementById('avisoLegalModal').classList.remove('show')">Cerrar</button>
         </div>
     </div>
 
@@ -622,9 +731,35 @@
         <div class="legal-modal">
             <h2>Política de Privacidad</h2>
             <div class="legal-text">
-                <p><strong>RGPD:</strong> Cumplimos estrictamente las directrices europeas de datos. No recogemos datos de carácter personal directo. Las plataformas externas publicitarias asociadas gestionan identificadores técnicos anónimos.</p>
+                <p><strong>1. Responsable del tratamiento de datos:</strong> RubyTools Instruments™</p>
+
+                <p><strong>2. Principios RGPD:</strong> Cumplimos estrictamente con RGPD (UE 2016/679):</p>
+                <ul>
+                    <li><strong>Lawfulness:</strong> Solo procesamos datos legales y lícitamente</li>
+                    <li><strong>Purpose Limitation:</strong> Los datos se usan solo para fines explícitos</li>
+                    <li><strong>Data minimization:</strong> Recopilamos solo datos necesarios</li>
+                    <li><strong>Storage limitation:</strong> Retenemos datos solo el tiempo necesario</li>
+                </ul>
+
+                <p><strong>3. Datos recopilados:</strong></p>
+                <ul>
+                    <li>Analytics anónimos: Ubicación, dispositivo, navegador, páginas visitadas</li>
+                    <li>NO recopilamos: Nombre, email, teléfono, dirección (sin consentimiento explícito)</li>
+                </ul>
+
+                <p><strong>4. Terceros y cookies:</strong> Utilizamos Google Analytics y redes publicitarias (ej: Google AdSense). Estos terceros tienen sus propias políticas de privacidad.</p>
+
+                <p><strong>5. Derechos del usuario:</strong> Bajo RGPD, usted tiene derecho a:</p>
+                <ul>
+                    <li>Acceso a sus datos</li>
+                    <li>Rectificación de datos inexactos</li>
+                    <li>Supresión ("derecho al olvido")</li>
+                    <li>Portabilidad de datos</li>
+                </ul>
+
+                <p><strong>6. Contacto:</strong> Para ejercer derechos RGPD, contacte a través de los canales del sitio.</p>
             </div>
-            <button class="btn-accept" onclick="document.getElementById('politicaPrivacidadModal').style.display='none'">Cerrar</button>
+            <button class="btn-accept" onclick="document.getElementById('politicaPrivacidadModal').classList.remove('show')">Cerrar</button>
         </div>
     </div>
 
@@ -632,9 +767,31 @@
         <div class="legal-modal">
             <h2>Política de Cookies</h2>
             <div class="legal-text">
-                <p>Este sitio web utiliza cookies analíticas de control interno y de redes de monetización publicitaria. Puede rechazar, bloquear o eliminar los rastreadores en la pestaña de herramientas técnicas de su navegador.</p>
+                <p><strong>1. ¿Qué son las cookies?</strong> Son pequeños archivos de texto almacenados en su dispositivo. Permiten personalizar su experiencia y recordar preferencias.</p>
+
+                <p><strong>2. Tipos de cookies utilizadas:</strong></p>
+                <ul>
+                    <li><strong>Técnicas:</strong> Funcionamiento básico del sitio</li>
+                    <li><strong>Analytics:</strong> Google Analytics (anonimizadas)</li>
+                    <li><strong>Publicitarias:</strong> Google AdSense y redes de monetización</li>
+                    <li><strong>Preferencias:</strong> Recordar consentimiento legal</li>
+                </ul>
+
+                <p><strong>3. Control de cookies:</strong> Puede:</p>
+                <ul>
+                    <li>Aceptar todas las cookies</li>
+                    <li>Rechazarlas en este modal</li>
+                    <li>Administrarlas en las opciones de su navegador (Firefox, Chrome, Safari, Edge)</li>
+                    <li>Usar herramientas como "Do Not Track" (DNT)</li>
+                </ul>
+
+                <p><strong>4. Duración:</strong> Las cookies pueden almacenarse de 1 día a 2 años según su tipo. El consentimiento se almacena por 365 días.</p>
+
+                <p><strong>5. Impacto del rechazo:</strong> Rechazar cookies no afectará funcionalidades esenciales, pero limitará personalizacion y análisis.</p>
+
+                <p><strong>6. Actualización:</strong> Esta política puede actualizarse. La última actualización es 2026.</p>
             </div>
-            <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
+            <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').classList.remove('show')">Cerrar</button>
         </div>
     </div>
 
@@ -688,7 +845,7 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-china', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="china-detail" class="details">
-                            <p><span class="highlight">Estudio:</span> Vickers et al., <em>Arch Intern Med</em> 2012. Metaanálisis de datos individuales de <strong>17.922 pacientes</strong> (29 ECAs).</p>
+                            <p><span class="highlight">Estudio:</span> Vickers et al., <em>Arch Intern Med</em> 2012. Metaanálisis de datos individuales de <strong>17.922 pacientes</strong> (29 ECAs)</p>
                             <p><span class="highlight">Lugares:</span> EE.UU., Alemania, Reino Unido, España.</p>
                             <p><span class="highlight">Resultado:</span> Diferencia significativa entre acupuntura real vs. simulada (p&lt;0.001). Efecto mantenido a 12 meses.</p>
                             <span class="grade-badge">GRADE: Moderado</span>
@@ -837,6 +994,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sección de donación -->
+            <div class="donate-container">
+                <h3>☕ Apoya nuestro proyecto con una donación</h3>
+                <p>Tu contribución nos ayuda a mantener y crear más contenidos científicos sobre medicina ancestral.</p>
+                <button class="btn-paypal" onclick="SaludAncestral.openPayPalDonation()">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.067 8.478c.492.88.556 2.014.3 3.327-.74 3.806-3.276 5.12-6.514 5.12h-.5a.805.805 0 00-.794.68l-.04.22-.63 4.003-.028.15a.806.806 0 01-.795.68h-2.11a.571.571 0 01-.563-.65l.04-.22.628-3.993.037-.18a.805.805 0 00-.794-.68h-1.97a.571.571 0 01-.563-.65l1.485-9.425a1.61 1.61 0 011.59-1.383h4.917c1.452 0 2.546-.297 3.12-1.177z"/>
+                    </svg>
+                    Donar con PayPal
+                </button>
+            </div>
         </div>
 
         <div class="section" id="section-medicinas">
@@ -891,15 +1060,13 @@
         </div>
 
         <footer class="footer">
-            Salud Ancestrale — Evidencias de tradiciónes en plena conexión con la ciencia actual · Actualizado 2026
+            Salud Ancestrale — Evidencias de tradiciones en plena conexión con la ciencia actual · Actualizado 2026
             <p class="footer-byline">RUBYTools Instruments™</p>
             <div class="footer-links">
-    <a data-modal="avisoLegalModal">Aviso Legal</a>
-    <a data-modal="politicaPrivacidadModal">Política de Privacidad</a>
-    <a data-modal="politicaCookiesModal">Política de Cookies</a>
-</div>
-
-            
+                <a onclick="document.getElementById('avisoLegalModal').classList.add('show')">Aviso Legal</a>
+                <a onclick="document.getElementById('politicaPrivacidadModal').classList.add('show')">Política de Privacidad</a>
+                <a onclick="document.getElementById('politicaCookiesModal').classList.add('show')">Política de Cookies</a>
+            </div>
         </footer>
     </div>
 
@@ -913,14 +1080,25 @@
         document.addEventListener("DOMContentLoaded", function() {
             var overlay = document.getElementById("legalOverlay");
             var btnAccept = document.getElementById("acceptLegalBtn");
+            var btnReject = document.getElementById("rejectLegalBtn");
 
-            if (!localStorage.getItem("cookiesAceptadas")) {
+            if (!localStorage.getItem("consentimientoLegal")) {
                 overlay.classList.add("show");
             }
 
             btnAccept.addEventListener("click", function() {
+                localStorage.setItem("consentimientoLegal", "aceptado");
                 localStorage.setItem("cookiesAceptadas", "true");
+                localStorage.setItem("fechaConsentimiento", new Date().toISOString());
                 overlay.classList.remove("show");
+                SaludAncestral.initializeAnalytics();
+            });
+
+            btnReject.addEventListener("click", function() {
+                localStorage.setItem("consentimientoLegal", "rechazado");
+                localStorage.setItem("cookiesAceptadas", "false");
+                overlay.classList.remove("show");
+                console.log("El usuario ha rechazado cookies y análisis.");
             });
         });
     </script>
@@ -940,4 +1118,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
