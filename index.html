@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+<DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -112,6 +114,7 @@
             border-radius: 2px;
         }
 
+        /* Estilos del nuevo Logotipo Emoji Centrado */
         .logo-cenital {
             text-align: center;
             width: 100%;
@@ -120,7 +123,7 @@
         }
 
         .logo-imagen {
-            max-width: 90px;
+            max-width: 90px; /* Tamaño ideal tipo emoji/icono superior */
             height: auto;
             display: inline-block;
             filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.12));
@@ -562,47 +565,6 @@
             border-bottom: 1px dashed #c4b49a;
         }
 
-        /* Estilo personalizado de Donativos */
-        .donation-box {
-            background: #fffdf9;
-            border: 2px dashed var(--bamboo-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin: 2rem auto;
-            max-width: 500px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .donation-title {
-            font-family: 'Georgia', serif;
-            color: var(--wood-dark);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .btn-coffee {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #FFDD00;
-            color: #000000;
-            border: 1px solid #000;
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-        }
-
-        .btn-coffee:hover {
-            background: #ffea59;
-            transform: scale(1.03);
-        }
-
         @media (max-width: 600px) {
             .container {
                 padding: 0.8rem;
@@ -634,11 +596,11 @@
 
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
-            <h2>⚠️ Optimización de Anuncios y Consentimiento Comercial</h2>
+            <h2>⚠️ Aviso legal y Consentimiento de Privacidad</h2>
             <div class="legal-text">
-                <p><strong>1. Canales y Redes de Anunciantes.</strong> Este portal integra códigos publicitarios y pasarelas de monetización automatizadas (incluyendo plataformas externas de oferta programática como Monetizer) para sostener la infraestructura de investigación didáctica de manera gratuita.</p>
-                <p><strong>2. Segmentación de Audiencias.</strong> Usamos cookies de optimización de ingresos y rastreadores de rendimiento técnico para que nuestros socios comerciales desplieguen banners relevantes basados en tu historial de navegación.</p>
-                <p><strong>3. Confirmación.</strong> Al presionar el botón inferior confirmas la activación y el despliegue técnico del inventario de anunciantes en tu sesión.</p>
+                <p><strong>1. Finalidad informativa.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural de la medicina tradicional antigua. No constituye asesoramiento médico.</p>
+                <p><strong>2. Uso de cookies y Monetización.</strong> Este sitio web utiliza cookies propias y de terceros (redes publicitarias y analíticas) para procesar datos básicos de navegación y ofrecer contenido relevante acorde a sus intereses.</p>
+                <p><strong>3. Aceptación.</strong> Al presionar el botón de abajo, acepta el uso de estas tecnologías de optimización técnica de anuncios.</p>
             </div>
             <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
         </div>
@@ -646,10 +608,11 @@
 
     <div class="legal-overlay" id="avisoLegalModal" style="display:none;">
         <div class="legal-modal">
-            <h2>Políticas del Anunciante</h2>
+            <h2>Aviso Legal</h2>
             <div class="legal-text">
-                <p><strong>Socio Publicitario Primario:</strong> Ruby's Lab™ Media & Networks Network.</p>
-                <p><strong>Finalidad Comercial:</strong> Monetización por impresiones (CPM) y clics validados a través de redes afiliadas directas e intermediarios de ofertas programáticas globales.</p>
+                <p><strong>Titular:</strong>Ruby's Lab™</p>
+                <p><strong>Finalidad:</strong> Investigación informativa y didáctica sin fines médicos directos. Los contenidos 
+                     y diseños originales están amparados por derechos de propiedad compartida educativa.</p>
             </div>
             <button class="btn-accept" onclick="document.getElementById('avisoLegalModal').style.display='none'">Cerrar</button>
         </div>
@@ -657,9 +620,9 @@
 
     <div class="legal-overlay" id="politicaPrivacidadModal" style="display:none;">
         <div class="legal-modal">
-            <h2>Privacidad de Tráfico Monetizado</h2>
+            <h2>Política de Privacidad</h2>
             <div class="legal-text">
-                <p><strong>Tratamiento de Datos Técnicos:</strong> No recopilamos identidades físicas, nombres o emails. Las redes de anunciantes integradas capturan de forma completamente anónima datos agregados, huellas digitales técnicas del navegador e IPs geolocalizadas para optimizar subastas de anuncios en tiempo real.</p>
+                <p><strong>RGPD:</strong> Cumplimos estrictamente las directrices europeas de datos. No recogemos datos de carácter personal directo. Las plataformas externas publicitarias asociadas gestionan identificadores técnicos anónimos.</p>
             </div>
             <button class="btn-accept" onclick="document.getElementById('politicaPrivacidadModal').style.display='none'">Cerrar</button>
         </div>
@@ -667,9 +630,9 @@
 
     <div class="legal-overlay" id="politicaCookiesModal" style="display:none;">
         <div class="legal-modal">
-            <h2>Cookies y Rastreadores Publicitarios</h2>
+            <h2>Política de Cookies</h2>
             <div class="legal-text">
-                <p>Este sitio web requiere el almacenamiento de pequeños fragmentos de código e identificadores comerciales de terceras partes (redes programáticas). Estos rastreadores adaptan de forma inteligente la entrega de anuncios y previenen fraudes en los contadores de clics.</p>
+                <p>Este sitio web utiliza cookies analíticas de control interno y de redes de monetización publicitaria. Puede rechazar, bloquear o eliminar los rastreadores en la pestaña de herramientas técnicas de su navegador.</p>
             </div>
             <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
         </div>
@@ -725,7 +688,6 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-china', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="china-detail" class="details">
-                            <p><span class="highlight">Historia Antigua:</span> Hace miles de años, el legendario Emperador Amarillo, Shennong, descubrió que las piedras afiladas (Bian) y finas espinas aliviaban dolores profundos. Observaron que canales invisibles de energía vital, llamados "Meridianos", recorrían el cuerpo como ríos y que, al desbloquearlos con precisión, el dolor físico se desvanecía por completo.</p>
                             <p><span class="highlight">Estudio:</span> Vickers et al., <em>Arch Intern Med</em> 2012. Metaanálisis de datos individuales de <strong>17.922 pacientes</strong> (29 ECAs).</p>
                             <p><span class="highlight">Lugares:</span> EE.UU., Alemania, Reino Unido, España.</p>
                             <p><span class="highlight">Resultado:</span> Diferencia significativa entre acupuntura real vs. simulada (p&lt;0.001). Efecto mantenido a 12 meses.</p>
@@ -760,7 +722,6 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-ayurveda', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="ayurveda-detail" class="details">
-                            <p><span class="highlight">Historia Antigua:</span> En las sagradas escrituras védicas de la India, la raíz dorada de la Cúrcuma era llamada "Haridra" (la que purifica el cuerpo). Vinculada a las divinidades del sol y la fertilidad por su color brillante, los antiguos sabios la molían en pesados morteros de piedra para sanar las articulaciones inflamadas de los caminantes infatigables y los ascetas.</p>
                             <p><span class="highlight">Ensayo:</span> Kuptniratsaikul et al., <em>Clin Interv Aging</em> 2014. N=367 pacientes en Tailandia.</p>
                             <p><span class="highlight">Diseño:</span> Cúrcuma 1.500 mg/día vs ibuprofeno 1.200 mg/día durante 4 semanas.</p>
                             <p><span class="highlight">Resultado:</span> No inferioridad en WOMAC. Menos efectos gastrointestinales (8.1% vs 16.9%).</p>
@@ -800,7 +761,6 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-zulu', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="africa-detail" class="details">
-                            <p><span class="highlight">Historia Antigua:</span> "Umckaloabo" procede de los guerreros de la etnia Zulú en los valles sudafricanos y se traduce textualmente como "dolor agudo en el pecho". Los chamanes locales excavaban las raíces profundas del Pelargonium para hervirlas en una infusión secreta que libraba milagrosamente a los ancianos de toses feroces y fiebres pulmonares invernales.</p>
                             <p><span class="highlight">Revisión Cochrane:</span> Timmer et al., 2013. 8 ECAs, 1.640 pacientes.</p>
                             <p><span class="highlight">Extracto:</span> EPs 7630 de <em>Pelargonium sidoides</em>.</p>
                             <p><span class="highlight">Resultado:</span> Reducción de síntomas en bronquitis aguda (DME -0.70). Casi el doble de remisión al día 7.</p>
@@ -835,7 +795,6 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-persia', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="persia-detail" class="details">
-                            <p><span class="highlight">Historia Antigua:</span> El azafrán, conocido como el "Oro Rojo", florecía en los campos del Imperio Persa. Avicena relató en sus manuscritos medievales que estas hebras tenían la mágica propiedad de restaurar "el espíritu alegre". Alejandro Magno se bañaba en aguas templadas llenas de azafrán persa para sanar sus profundas heridas de batalla y disipar la melancolía del combate.</p>
                             <p><span class="highlight">Metaanálisis:</span> Tóth et al., <em>J Integr Med</em> 2018. 11 ECAs, 524 pacientes.</p>
                             <p><span class="highlight">Comparativa:</span> Azafrán 30 mg/día vs fluoxetina/imipramina.</p>
                             <p><span class="highlight">Resultado:</span> Reducción depresión (DME -0.66 frente a placebo). No inferioridad.</p>
@@ -869,7 +828,6 @@
                             <button class="btn-audio" onclick="SaludAncestral.speakCard('card-egipto', this)">🔊 Escuchar estudio</button>
                         </div>
                         <div id="egypt-detail" class="details">
-                            <p><span class="highlight">Historia Antigua:</span> En las riberas del Nilo, los médicos de los faraones consideraban a las abejas lágrimas vivas del Dios Ra. En los papiros sagrados de Edwin Smith y Ebers (1600 a.C.), se detallaba minuciosamente cómo aplicar vendas de lino empapadas en miel pura cruda sobre las graves quemaduras de los constructores de pirámides para alejar "la podredumbre" de la carne.</p>
                             <p><span class="highlight">Cochrane:</span> Jull et al., 2015. 26 ECAs, 3.011 participantes.</p>
                             <p><span class="highlight">Resultado clave:</span> Cicatrización 4,7 días más rápida en quemaduras de espesor parcial.</p>
                             <p><span class="highlight">Infección:</span> Reducción del 55% en heridas quirúrgicas (RR 0.45).</p>
@@ -927,27 +885,21 @@
                 <li><strong>Objetivo:</strong> Divulgar hallazgos científicos contrastados procedentes de medicinas tradicionales antiguas.</li>
                 <li><strong>Método:</strong> Revisión sistemática de ensayos clínicos, metaanálisis y revisiones Cochrane.</li>
                 <li><strong>Valores:</strong> Rigor, respeto por las culturas originarias, y compromiso con la verdad científica.</li>
+                <li><strong>Aviso:</strong> Todo el contenido es informativo y educativo. No constituye consejo médico.</li>
                 <li><strong>Autor:</strong> RubyTools Instruments™</li>
             </ul>
-
-            <div class="donation-box">
-                <p class="donation-title">☕ ¿Te gusta nuestra labor de investigación?</p>
-                <p style="font-size:0.9rem; color:#5a4a3a; margin-bottom:1rem;">Ayúdanos a mantener este rincón libre de muros de pago. Tu pequeño grano de arena financia la traducción de ensayos y estudios botánicos.</p>
-                <a href="https://www.buymeacoffee.com/tu_usuario" target="_blank" class="btn-coffee">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>
-                    Invítame a un café
-                </a>
-            </div>
         </div>
 
         <footer class="footer">
-            Salud Ancestrale — Evidencias de tradiciones en plena conexión con la ciencia actual · Actualizado 2026
+            Salud Ancestrale — Evidencias de tradiciónes en plena conexión con la ciencia actual · Actualizado 2026
             <p class="footer-byline">RUBYTools Instruments™</p>
             <div class="footer-links">
-                <a data-modal="avisoLegalModal">Anunciantes</a>
-                <a data-modal="politicaPrivacidadModal">Privacidad Tráfico</a>
-                <a data-modal="politicaCookiesModal">Redes Publicitarias</a>
-            </div>
+    <a data-modal="avisoLegalModal">Aviso Legal</a>
+    <a data-modal="politicaPrivacidadModal">Política de Privacidad</a>
+    <a data-modal="politicaCookiesModal">Política de Cookies</a>
+</div>
+
+            
         </footer>
     </div>
 
@@ -981,13 +933,11 @@
     <script>
         document.getElementById("acceptLegalBtn").addEventListener("click", function() {
             var audio = document.getElementById("bgMusic");
-            if(audio) {
-                audio.volume = 0.03;
-                audio.play().catch(function(e) {
-                    console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
-                });
-            }
+            audio.volume = 0.03;
+            audio.play().catch(function(e) {
+                console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
+            });
         });
     </script>
 </body>
-</html>
+</html> 
