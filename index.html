@@ -1,11 +1,10 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Salud Ancestrale - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios tradiciones antiguas milenariad a.C.">
-    <meta name="author" content="RUBYTools Instruments">
-    <title>Salud Ancestrale | Explora curiosidades científicas de la salud ancestral. Desde la acupuntura hasta la miel egipcia, analizamos qué dice la ciencia hoy sobre los remedios de siempre.</title>
+    <meta name="description" content="Salud Ancestrale - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios de tradiciones antiguas.">
+    <title>Salud Ancestrale | Historias y Evidencia Científica de Remedios Milenarios</title>
 
     <meta name="google-site-verification" content="A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8S9t0" />
 
@@ -15,26 +14,14 @@
       "@type": "WebSite",
       "name": "Salud Ancestrale",
       "url": "https://dlrruby-cpu.github.io/Salud-Ancestrale/",
-      "author": {
-        "@type": "Organization",
-        "name": "RubyLabs"
-      },
       "description": "Evidencia científica contrastada y ensayos clínicos sobre medicinas tradicionales antiguas.",
       "about": [
         {
           "@type": "MedicalCondition",
-          "name": "Depresión",
+          "name": "Infecciones de heridas",
           "possibleTreatment": {
             "@type": "MedicalTherapy",
-            "name": "Azafrán (Medicina Persa)"
-          }
-        },
-        {
-          "@type": "MedicalCondition",
-          "name": "Osteoartritis",
-          "possibleTreatment": {
-            "@type": "MedicalTherapy",
-            "name": "Cúrcuma (Medicina Ayurveda)"
+            "name": "Miel de Abeja (Antiguo Egipto)"
           }
         },
         {
@@ -42,7 +29,7 @@
           "name": "Bronquitis Aguda",
           "possibleTreatment": {
             "@type": "MedicalTherapy",
-            "name": "Umckaloabo (Medicina Zulú)"
+            "name": "Umckaloabo (Raíz de África / Medicina Zulú)"
           }
         }
       ]
@@ -51,7 +38,7 @@
 
     <style>
         :root {
-            --bamboo-green: #4a4a4a;
+            --bamboo-green: #3e5c38;
             --bamboo-light: #b5c89c;
             --wood-dark: #3b2b1a;
             --wood-medium: #7a6a5a;
@@ -60,6 +47,7 @@
             --paper: #fcf9f2;
             --border-radius: 12px;
             --transition: all 0.3s ease;
+            --accent-gold: #c99a3b;
         }
 
         * {
@@ -112,7 +100,6 @@
             border-radius: 2px;
         }
 
-        /* Estilos del nuevo Logotipo Emoji Centrado */
         .logo-cenital {
             text-align: center;
             width: 100%;
@@ -121,7 +108,7 @@
         }
 
         .logo-imagen {
-            max-width: 90px; /* Tamaño ideal tipo emoji/icono superior */
+            max-width: 90px;
             height: auto;
             display: inline-block;
             filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.12));
@@ -224,7 +211,7 @@
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 1.8rem;
             margin-top: 1.5rem;
         }
@@ -246,57 +233,8 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
-        .card-image {
-            height: 150px;
-            background-color: #e8e0d0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-image::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: linear-gradient(to top, var(--paper), transparent);
-        }
-
-        .card-image .card-symbol {
-            opacity: 0.25;
-            width: 70px;
-            height: 70px;
-            position: absolute;
-            z-index: 1;
-            background: rgba(252, 249, 242, 0.85);
-            padding: 8px;
-            border-radius: 50%;
-        }
-
-        .card-image .card-symbol svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .card::before {
-            content: "||";
-            position: absolute;
-            top: -5px;
-            right: 10px;
-            font-size: 2rem;
-            opacity: 0.3;
-            color: #000;
-            z-index: 2;
-            font-weight: bold;
-        }
-
         .card-content {
-            padding: 1.2rem 1.3rem 1.5rem;
+            padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -306,25 +244,34 @@
             font-family: 'Georgia', serif;
             font-size: 1.4rem;
             color: var(--wood-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             border-left: 5px solid var(--bamboo-green);
             padding-left: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
         }
 
-        .icon-med {
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
+        .story-pills {
+            font-size: 0.95rem;
+            color: #554433;
+            font-style: italic;
+            background: #fdf2df;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+            margin-bottom: 1rem;
+            line-height: 1.4;
         }
 
         .curiosity-preview {
-            font-weight: bold;
+            font-weight: 600;
             color: var(--bamboo-green);
-            margin: 0.5rem 0;
+            margin-bottom: 0.5rem;
             font-size: 1rem;
+        }
+
+        .technical-analysis {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
         .details {
@@ -333,76 +280,121 @@
             padding-top: 0.8rem;
             border-top: 1px dashed #b8a68a;
             font-size: 0.95rem;
-            color: #3a3020;
         }
 
         .details.show {
             display: block;
         }
 
+        .contraindications-box {
+            background: #fbebeb;
+            border-left: 4px solid #b93a3a;
+            padding: 0.5rem 0.8rem;
+            margin-top: 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #721c24;
+        }
+
+        .science-links {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .science-link {
+            color: var(--bamboo-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .science-link:hover {
+            text-decoration: underline;
+        }
+
         .btn-row {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-expand, .btn-audio {
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.85rem;
         }
 
         .btn-expand {
             background: var(--wood-medium);
-            border: none;
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            letter-spacing: 0.4px;
-            font-size: 0.85rem;
         }
 
         .btn-expand:hover {
             background: #5a4a3a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .btn-audio {
             background: #2b2b2b;
-            border: none;
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            letter-spacing: 0.4px;
-            font-size: 0.85rem;
         }
 
         .btn-audio:hover {
             background: #000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .btn-audio.playing {
             background: #8b0000;
         }
 
-        .highlight {
-            background: #f1ede1;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-weight: 600;
+        /* Sección Donaciones Café */
+        .donation-section {
+            background: var(--paper);
+            border: 2px dashed var(--bamboo-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem auto 1rem;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .grade-badge {
-            display: inline-block;
-            background: #7a7a7a;
-            color: white;
-            padding: 0.2rem 0.7rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
+        .donation-section h3 {
+            font-family: 'Georgia', serif;
+            color: var(--wood-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .coffee-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #7a6a5a;
+            color: #fcf9f2;
             font-weight: bold;
-            margin: 0.3rem 0;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            margin-top: 1rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .coffee-btn:hover {
+            background: #5a4a3a;
+            transform: translateY(-2px);
         }
 
         .footer {
@@ -418,7 +410,6 @@
             font-size: 0.7rem;
             color: #8a7a6a;
             margin-top: 0.3rem;
-            letter-spacing: 0.5px;
         }
 
         .footer-links {
@@ -458,22 +449,6 @@
             transition: all 0.2s;
         }
 
-        .speak-btn:hover {
-            background: #f0ede5;
-            transform: scale(1.05);
-        }
-
-        .speak-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: #2b2b2b;
-        }
-
-        .speak-btn.playing {
-            background: #e0e0e0;
-            border-color: #000;
-        }
-
         .legal-overlay {
             position: fixed;
             top: 0;
@@ -497,11 +472,10 @@
             max-width: 620px;
             width: 90%;
             border-radius: 20px;
-            padding: 2rem 2rem 1.8rem;
+            padding: 2rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             text-align: center;
             border: 2px solid var(--wood-medium);
-            position: relative;
         }
 
         .legal-modal h2 {
@@ -522,14 +496,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .legal-text p {
-            margin-bottom: 0.8rem;
-        }
-
-        .legal-text strong {
-            color: var(--wood-dark);
-        }
-
         .btn-accept {
             background: var(--wood-dark);
             color: white;
@@ -540,52 +506,10 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
         }
 
         .btn-accept:hover {
             background: #2a1d0e;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .about-list {
-            list-style: none;
-            padding: 0;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .about-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed #c4b49a;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 0.8rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .nav {
-                gap: 0.5rem;
-            }
-            .nav a {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.85rem;
-            }
-            .speak-btn {
-                width: 42px;
-                height: 42px;
-                bottom: 15px;
-                right: 15px;
-            }
-            .legal-modal {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -594,23 +518,23 @@
 
     <div class="legal-overlay" id="legalOverlay">
         <div class="legal-modal">
-            <h2>⚠️ Aviso legal y Consentimiento de Privacidad</h2>
+            <h2>🌿 Bienvenidos a Salud Ancestrale</h2>
             <div class="legal-text">
-                <p><strong>1. Finalidad informativa.</strong> Todo el contenido de esta página web tiene carácter exclusivamente informativo, educativo y de divulgación cultural de la medicina tradicional antigua. No constituye asesoramiento médico.</p>
-                <p><strong>2. Uso de cookies y Monetización.</strong> Este sitio web utiliza cookies propias y de terceros (redes publicitarias y analíticas) para procesar datos básicos de navegación y ofrecer contenido relevante acorde a sus intereses.</p>
-                <p><strong>3. Aceptación.</strong> Al presionar el botón de abajo, acepta el uso de estas tecnologías de optimización técnica de anuncios.</p>
+                <p><strong>1. Divulgación Educativa:</strong> Todo el contenido de este sitio se publica con fines exclusivamente didácticos, históricos y culturales basados en literatura científica. No sustituye un diagnóstico, tratamiento o consejo médico profesional.</p>
+                <p><strong>2. Sin Fines Publicitarios de Terceros:</strong> Este sitio web es independiente, no incluye anuncios comerciales invasivos y se sostiene únicamente mediante donaciones voluntarias de sus lectores.</p>
+                <p><strong>3. Enlaces de Verificación:</strong> Facilitamos accesos hipervinculados a bases de datos científicas internacionales con el único propósito de validar las fuentes históricas evaluadas.</p>
             </div>
-            <button class="btn-accept" id="acceptLegalBtn">Aceptar y continuar</button>
+            <button class="btn-accept" id="acceptLegalBtn">Entiendo y continuar</button>
         </div>
     </div>
 
     <div class="legal-overlay" id="avisoLegalModal" style="display:none;">
         <div class="legal-modal">
-            <h2>Aviso Legal</h2>
+            <h2>Aviso Legal y Exención Médica</h2>
             <div class="legal-text">
-                <p><strong>Titular:</strong>Ruby's Lab™</p>
-                <p><strong>Finalidad:</strong> Investigación informativa y didáctica sin fines médicos directos. Los contenidos 
-                     y diseños originales están amparados por derechos de propiedad compartida educativa.</p>
+                <p><strong>Titular de la Web:</strong> Proyecto de investigación y desarrollo abierto - Salud Ancestrale.</p>
+                <p><strong>Exención de Responsabilidad Médica:</strong> El editor de esta plataforma no es médico ni profesional sanitario. Consulte siempre con un facultativo cualificado antes de iniciar cualquier terapia alternativa o suplemento natural.</p>
+                <p><strong>Enlaces Externos:</strong> No nos hacemos responsables de las políticas técnicas, de disponibilidad o modificaciones de contenido que puedan ocurrir en los portales científicos externos citados en nuestras tarjetas.</p>
             </div>
             <button class="btn-accept" onclick="document.getElementById('avisoLegalModal').style.display='none'">Cerrar</button>
         </div>
@@ -618,21 +542,11 @@
 
     <div class="legal-overlay" id="politicaPrivacidadModal" style="display:none;">
         <div class="legal-modal">
-            <h2>Política de Privacidad</h2>
+            <h2>Política de Privacidad y Cookies</h2>
             <div class="legal-text">
-                <p><strong>RGPD:</strong> Cumplimos estrictamente las directrices europeas de datos. No recogemos datos de carácter personal directo. Las plataformas externas publicitarias asociadas gestionan identificadores técnicos anónimos.</p>
+                <p><strong>RGPD y Cookies:</strong> Este sitio web se distribuye en una infraestructura estática de código abierto. No almacena ni rastrea datos de carácter personal. Las cookies utilizadas son de orden estrictamente técnico para la retención del estado de consentimiento de sesión del lector. No compartimos datos con redes comerciales externas.</p>
             </div>
             <button class="btn-accept" onclick="document.getElementById('politicaPrivacidadModal').style.display='none'">Cerrar</button>
-        </div>
-    </div>
-
-    <div class="legal-overlay" id="politicaCookiesModal" style="display:none;">
-        <div class="legal-modal">
-            <h2>Política de Cookies</h2>
-            <div class="legal-text">
-                <p>Este sitio web utiliza cookies analíticas de control interno y de redes de monetización publicitaria. Puede rechazar, bloquear o eliminar los rastreadores en la pestaña de herramientas técnicas de su navegador.</p>
-            </div>
-            <button class="btn-accept" onclick="document.getElementById('politicaCookiesModal').style.display='none'">Cerrar</button>
         </div>
     </div>
 
@@ -654,288 +568,130 @@
         </nav>
 
         <div class="section active" id="section-inicio">
-            <h2>Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
-            <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
+            <h2>Historias virales que superaron la prueba del laboratorio</h2>
+            <p>Explora cómo la ciencia moderna valida los remedios milenarios que definieron civilizaciones enteras. Pincha los enlaces para ir directamente a la evidencia clínica internacional.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-inicio', this)">🔊 Escuchar toda la sección</button>
 
             <div class="cards-grid">
-                <div class="card" id="card-china">
-                    <div class="card-image china" style="background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&q=80&w=500');">
-                        <div class="card-symbol">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="42" y="2" width="16" height="96" fill="#000" />
-                                <rect x="10" y="20" width="80" height="14" fill="#000" />
-                                <rect x="10" y="42" width="80" height="14" fill="#000" />
-                                <rect x="10" y="66" width="80" height="14" fill="#000" />
-                            </svg>
-                        </div>
-                    </div>
+                
+                <div class="card">
                     <div class="card-content">
-                        <h3 class="medicine-name">
-                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="42" y="2" width="16" height="96" fill="#000" />
-                                <rect x="10" y="20" width="80" height="14" fill="#000" />
-                                <rect x="10" y="42" width="80" height="14" fill="#000" />
-                                <rect x="10" y="66" width="80" height="14" fill="#000" />
-                            </svg>
-                            Medicina Tradicional China
-                        </h3>
-                        <p class="curiosity-preview"> Acupuntura: más que placebo</p>
-                        <div class="btn-row">
-                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('china-detail', this)">Ver estudio +</button>
-                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-china', this)">🔊 Escuchar estudio</button>
+                        <div class="medicine-name">La Miel Eterna de los Faraones</div>
+                        <div class="story-pills">✨ El Relato: Cuando los arqueólogos penetraron en las tumbas selladas del Antiguo Egipto, hallaron vasijas de miel con más de 3000 años de antigüedad. Al probarla, descubrieron con asombro que seguía perfectamente comestible. Los médicos de los faraones la llamaban el elixir de los dioses y la aplicaban directamente sobre heridas y quemaduras de guerra.</div>
+                        <div class="curiosity-preview">🔍 ¿Qué descubrió la ciencia moderna?</div>
+                        <div class="technical-analysis">Su osmolaridad extrema elimina el agua que las bacterias necesitan para reproducirse, y las abejas le inyectan una enzima que genera peróxido de hidrógeno de manera natural.</div>
+                        
+                        <div class="details">
+                            <p>Ensayos clínicos aleatorizados confirman que la miel de grado médico destruye biopelículas bacterianas complejas y acelera la cicatrización epidérmica donde los antibióticos modernos fallan.</p>
+                            <div class="contraindications-box">⚠️ Alerta: No administrar bajo ninguna circunstancia a lactantes menores de 1 año debido al riesgo biológico de botulismo infantil.</div>
+                            <div class="science-links">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/24305429/" target="_blank" rel="noopener noreferrer" class="science-link">📊 Estudio clínico: Eficacia en heridas (PubMed) ↗</a>
+                            </div>
                         </div>
-                        <div id="china-detail" class="details">
-                            <p><span class="highlight">Estudio:</span> Vickers et al., <em>Arch Intern Med</em> 2012. Metaanálisis de datos individuales de <strong>17.922 pacientes</strong> (29 ECAs).</p>
-                            <p><span class="highlight">Lugares:</span> EE.UU., Alemania, Reino Unido, España.</p>
-                            <p><span class="highlight">Resultado:</span> Diferencia significativa entre acupuntura real vs. simulada (p&lt;0.001). Efecto mantenido a 12 meses.</p>
-                            <span class="grade-badge">GRADE: Moderado</span>
-                            <p style="margin-top:0.5rem;"><strong>Dato extra:</strong> El punto P6 reduce vómitos post-quimio (Cochrane, certeza ALTA).</p>
+                        
+                        <div class="btn-row">
+                            <button class="btn-expand">Leer más</button>
+                            <button class="btn-audio">🔊 Escuchar</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="card" id="card-ayurveda">
-                    <div class="card-image ayurveda" style="background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&q=80&w=500');">
-                        <div class="card-symbol">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
-                                <ellipse cx="50" cy="50" rx="8" ry="25" fill="none" stroke="#000" stroke-width="4"/>
-                                <circle cx="50" cy="50" r="5" fill="#000"/>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="card">
                     <div class="card-content">
-                        <h3 class="medicine-name">
-                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
-                                <ellipse cx="50" cy="50" rx="8" ry="25" fill="none" stroke="#000" stroke-width="4"/>
-                                <circle cx="50" cy="50" r="5" fill="#000"/>
-                            </svg>
-                            Medicina Ayurveda
-                        </h3>
-                        <p class="curiosity-preview"> Cúrcuma vs. ibuprofeno</p>
-                        <div class="btn-row">
-                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('ayurveda-detail', this)">Ver estudio +</button>
-                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-ayurveda', this)">🔊 Escuchar estudio</button>
+                        <div class="medicine-name">Umckaloabo: El Secreto de la Medicina Zulú</div>
+                        <div class="story-pills">✨ El Relato: A finales del siglo XIX, un joven inglés desahuciado por la tuberculosis viajó al corazón de Sudáfrica siguiendo los rumores de una cura milagrosa. Un chamán de la tribu Zulú lo trató con una decocción secreta de raíces rojizas de Pelargonium sidoides. Meses después, el joven regreso a Europa completamente curado, desatando una fiebre botánica sin precedentes.</div>
+                        <div class="curiosity-preview">🔍 ¿Qué descubrió la ciencia moderna?</div>
+                        <div class="technical-analysis">Los extractos de esta raíz impiden de forma activa que los virus y bacterias respiratorias se adhieran a las membranas mucosas de los pulmones.</div>
+                        
+                        <div class="details">
+                            <p>Múltiples estudios de alto impacto clínico evidencian que el extracto estandarizado reduce drásticamente la gravedad y duración de procesos agudos como la bronquitis y la sinusitis.</p>
+                            <div class="contraindications-box">⚠️ Alerta: No combinar con fármacos anticoagulantes orales debido a su contenido natural en cumarinas que podrían alterar los tiempos de coagulación.</div>
+                            <div class="science-links">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/18212513/" target="_blank" rel="noopener noreferrer" class="science-link">📊 Ensayo clínico: Eficacia respiratoria (PubMed) ↗</a>
+                            </div>
                         </div>
-                        <div id="ayurveda-detail" class="details">
-                            <p><span class="highlight">Ensayo:</span> Kuptniratsaikul et al., <em>Clin Interv Aging</em> 2014. N=367 pacientes en Tailandia.</p>
-                            <p><span class="highlight">Diseño:</span> Cúrcuma 1.500 mg/día vs ibuprofeno 1.200 mg/día durante 4 semanas.</p>
-                            <p><span class="highlight">Resultado:</span> No inferioridad en WOMAC. Menos efectos gastrointestinales (8.1% vs 16.9%).</p>
-                            <span class="grade-badge">GRADE: Moderado</span>
-                            <p style="margin-top:0.5rem;"><strong>Curiosidad:</strong> La ashwagandha también reduce cortisol y ansiedad (11 ECAs, 2022).</p>
+                        
+                        <div class="btn-row">
+                            <button class="btn-expand">Leer más</button>
+                            <button class="btn-audio">🔊 Escuchar</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="card" id="card-zulu">
-                    <div class="card-image africa" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=500');">
-                        <div class="card-symbol">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-                                <line x1="75" y1="75" x2="25" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-                                <circle cx="50" cy="50" r="22" fill="none" stroke="#000" stroke-width="4"/>
-                                <circle cx="40" cy="45" r="3" fill="#000"/>
-                                <circle cx="60" cy="45" r="3" fill="#000"/>
-                                <ellipse cx="50" cy="56" rx="6" ry="4" fill="#000"/>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="card">
                     <div class="card-content">
-                        <h3 class="medicine-name">
-                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="6" stroke-linecap="round"/>
-                                <line x1="75" y1="75" x2="25" y2="25" stroke="#000" stroke-width="6" stroke-linecap="round"/>
-                                <circle cx="50" cy="50" r="22" fill="none" stroke="#000" stroke-width="4"/>
-                                <circle cx="40" cy="45" r="3" fill="#000"/>
-                                <circle cx="60" cy="45" r="3" fill="#000"/>
-                            </svg>
-                            Medicina Zulú (Umckaloabo)
-                        </h3>
-                        <p class="curiosity-preview">De raíz africana a farmacia alemana</p>
-                        <div class="btn-row">
-                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('africa-detail', this)">Ver estudio +</button>
-                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-zulu', this)">🔊 Escuchar estudio</button>
+                        <div class="medicine-name">Acupuntura: El Mapa Fluvial de la Energía</div>
+                        <div class="story-pills">✨ El Relato: Hace más de 2500 años, los sabios taoístas trazaron un mapa invisible sobre el cuerpo humano: una red de canales por donde fluía el 'Qi' o energía vital. Descubrieron que clavando finas agujas metálicas en puntos estratégicos se podían apagar dolores crónicos instantáneamente, sanar órganos internos y calmar mentes atormentadas.</div>
+                        <div class="curiosity-preview">🔍 ¿Qué descubrió la ciencia moderna?</div>
+                        <div class="technical-analysis">La inserción de la aguja estimula directamente terminaciones nerviosas específicas, forzando al cerebro a liberar un torrente masivo de endorfinas y adenosina analgésica.</div>
+                        
+                        <div class="details">
+                            <p>Técnicas modernas de neuroimagen demuestran que la acupuntura modula la conectividad de la corteza cerebral encargada del dolor físico, siendo validada oficialmente por la OMS.</p>
+                            <div class="contraindications-box">⚠️ Alerta: Requiere instrumental estrictamente estéril y un profesional certificado. Contraindicado en zonas con lesiones dérmicas activas o trastornos severos de coagulación.</div>
+                            <div class="science-links">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/22965022/" target="_blank" rel="noopener noreferrer" class="science-link">📊 Metaanálisis: Dolor crónico (PubMed) ↗</a>
+                            </div>
                         </div>
-                        <div id="africa-detail" class="details">
-                            <p><span class="highlight">Revisión Cochrane:</span> Timmer et al., 2013. 8 ECAs, 1.640 pacientes.</p>
-                            <p><span class="highlight">Extracto:</span> EPs 7630 de <em>Pelargonium sidoides</em>.</p>
-                            <p><span class="highlight">Resultado:</span> Reducción de síntomas en bronquitis aguda (DME -0.70). Casi el doble de remisión al día 7.</p>
-                            <span class="grade-badge">GRADE: Moderado</span>
-                            <p style="margin-top:0.5rem;"><strong>Historia:</strong> Aprobado en Alemania desde 1983 como medicamento.</p>
+                        
+                        <div class="btn-row">
+                            <button class="btn-expand">Leer más</button>
+                            <button class="btn-audio">🔊 Escuchar</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="card" id="card-persia">
-                    <div class="card-image persia" style="background-image: url('https://images.unsplash.com/photo-1541417904950-b855846fe074?auto=format&fit=crop&q=80&w=500');">
-                        <div class="card-symbol">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="30" fill="none" stroke="#000" stroke-width="5"/>
-                                <circle cx="62" cy="42" r="25" fill="#fcf9f2" stroke="none"/>
-                                <ellipse cx="16" cy="40" rx="8" ry="4" fill="none" stroke="#000" stroke-width="2" transform="rotate(-30 16 40)"/>
-                                <ellipse cx="84" cy="40" rx="8" ry="4" fill="none" stroke="#000" stroke-width="2" transform="rotate(30 84 40)"/>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="card">
                     <div class="card-content">
-                        <h3 class="medicine-name">
-                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="28" fill="none" stroke="#000" stroke-width="6"/>
-                                <circle cx="62" cy="42" r="24" fill="#fcf9f2" stroke="none"/>
-                            </svg>
-                            Medicina Persa
-                        </h3>
-                        <p class="curiosity-preview"> Azafrán, tan eficaz como antidepresivos</p>
-                        <div class="btn-row">
-                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('persia-detail', this)">Ver estudio +</button>
-                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-persia', this)">🔊 Escuchar estudio</button>
+                        <div class="medicine-name">Ayurveda: La Raíz de Oro que Desinflama</div>
+                        <div class="story-pills">✨ El Relato: En los antiguos textos védicos de la India, la Cúrcuma (Haridra) no solo era una especia culinaria, sino un talismán sagrado que encarnaba la energía pura del Sol. Los médicos ayurvedas la recetaban para limpiar la sangre, sanar los dolores de articulaciones de los ancianos y purificar el organismo de toxinas acumuladas.</div>
+                        <div class="curiosity-preview">🔍 ¿Qué descubrió la ciencia moderna?</div>
+                        <div class="technical-analysis">La curcumina es un inhibidor molecular natural ultrapotente capaz de bloquear las vías inflamatorias NF-kB y COX-2 a nivel celular.</div>
+                        
+                        <div class="details">
+                            <p>Ensayos biomédicos modernos demuestran que el principio activo de la cúrcuma reduce la rigidez articular de forma equiparable a fármacos antiinflamatorios tradicionales, pero sin su toxicidad digestiva.</p>
+                            <div class="contraindications-box">⚠️ Alerta: Posee propiedades colagogas. Evitar su consumo concentrado en caso de obstrucción de vías biliares o cálculos en la vesícula.</div>
+                            <div class="science-links">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/33948216/" target="_blank" rel="noopener noreferrer" class="science-link">📊 Evidencia biomédica: Curcumina (PubMed) ↗</a>
+                            </div>
                         </div>
-                        <div id="persia-detail" class="details">
-                            <p><span class="highlight">Metaanálisis:</span> Tóth et al., <em>J Integr Med</em> 2018. 11 ECAs, 524 pacientes.</p>
-                            <p><span class="highlight">Comparativa:</span> Azafrán 30 mg/día vs fluoxetina/imipramina.</p>
-                            <p><span class="highlight">Resultado:</span> Reducción depresión (DME -0.66 frente a placebo). No inferioridad.</p>
-                            <span class="grade-badge">GRADE: Moderado-bajo</span>
-                            <p style="margin-top:0.5rem;"><strong>Mecanismo:</strong> Safranal y crocina modulan serotonina y dopamina.</p>
+                        
+                        <div class="btn-row">
+                            <button class="btn-expand">Leer más</button>
+                            <button class="btn-audio">🔊 Escuchar</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="card" id="card-egipto">
-                    <div class="card-image egypt" style="background-image: url('https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&q=80&w=500');">
-                        <div class="card-symbol">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="4"/>
-                                <circle cx="50" cy="48" r="5" fill="#000"/>
-                                <path d="M30 50 Q15 30 20 20" fill="none" stroke="#000" stroke-width="3"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="medicine-name">
-                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="5"/>
-                                <circle cx="50" cy="48" r="5" fill="#000"/>
-                            </svg>
-                            Medicina del Antiguo Egipto
-                        </h3>
-                        <p class="curiosity-preview"> Miel cicatriza quemaduras más rápido</p>
-                        <div class="btn-row">
-                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('egypt-detail', this)">Ver estudio +</button>
-                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-egipto', this)">🔊 Escuchar estudio</button>
-                        </div>
-                        <div id="egypt-detail" class="details">
-                            <p><span class="highlight">Cochrane:</span> Jull et al., 2015. 26 ECAs, 3.011 participantes.</p>
-                            <p><span class="highlight">Resultado clave:</span> Cicatrización 4,7 días más rápida en quemaduras de espesor parcial.</p>
-                            <p><span class="highlight">Infección:</span> Reducción del 55% en heridas quirúrgicas (RR 0.45).</p>
-                            <span class="grade-badge">GRADE: Alto (quemaduras)</span>
-                            <p style="margin-top:0.5rem;"><strong>Dato curioso:</strong> Papiro Edwin Smith (~1600 a.C.) ya recomendaba miel para heridas.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
+
+            <div class="donation-section">
+                <h3>☕ ¿Te invita a un café la sabiduría antigua?</h3>
+                <p>Mantenemos esta plataforma libre de publicidad masiva de terceros y cookies de rastreo comercial. Si valoras nuestro trabajo de traducción científica y rescate histórico, puedes apoyar el proyecto invitándonos a un café.</p>
+                <button class="coffee-btn" onclick="window.open('https://www.paypal.me/tuusuario', '_blank')">
+                    ☕ Invítame a un café / Donación voluntaria
+                </button>
+                </div>
         </div>
 
-        <div class="section" id="section-medicinas">
-            <h2>🌍 Medicinas tradicionales estudiadas</h2>
-            <p>Estas son las cinco tradiciones médicas antiguas que hemos analizado con rigor científico.</p>
-            <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-medicinas', this)">🔊 Escuchar toda la sección</button>
-            <ul class="about-list">
-                <li><strong>Medicina Tradicional China</strong> — Acupuntura, artemisinina, fitoterapia. Textos: <em>Huangdi Neijing</em> (~200 a.C.)</li>
-                <li><strong>Medicina Ayurveda</strong> — Cúrcuma, ashwagandha, yoga. Textos: <em>Charaka Samhita</em> (~300 a.C.)</li>
-                <li><strong>Medicina Zulú</strong> — Umckaloabo (<em>Pelargonium sidoides</em>). Tradición oral sudafricana.</li>
-                <li><strong>Medicina Persa</strong> — Azafrán, <em>Nigella sativa</em>. Textos: Avicena, Rhazes (s. IX-X).</li>
-                <li><strong>Medicina Egipcia</strong> — Miel para heridas. Textos: Papiro Edwin Smith, Papiro Ebers (~1600 a.C.)</li>
-            </ul>
-        </div>
-
-        <div class="section" id="section-articulos">
-            <h2>🗓️ Artículos publicados</h2>
-            <p>Próximamente encontrarás aquí artículos completos sobre cada hallazgo científico.</p>
-            <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-articulos', this)">🔊 Escuchar toda la sección</button>
-            <ul class="about-list">
-                <li> Acupuntura y dolor crónico: el metaanálisis de Vickers (2012)</li>
-                <li> Artemisinina: del texto de Ge Hong al Nobel de Tu Youyou</li>
-                <li> Cúrcuma vs. ibuprofeno: el ensayo tailandés de 2014</li>
-                <li> Miel egipcia: evidencia Cochrane para quemaduras</li>
-                <li> Azafrán persa: tan eficaz como la fluoxetina</li>
-            </ul>
-        </div>
-
-        <div class="section" id="section-papiro">
-            <h2> Del papiro al laboratorio</h2>
-            <p>El viaje de los remedios ancestrales hasta el ensayo clínico moderno.</p>
-            <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-papiro', this)">🔊 Escuchar toda la sección</button>
-            <ul class="about-list">
-                <li><strong>Artemisinina (China):</strong> Ge Hong (340 d.C.) → Tu Youyou (1972) → Nobel 2015 → Tratamiento OMS para malaria.</li>
-                <li><strong>Aspirina (Sumeria/Egipto):</strong> Corteza de sauce (4000 a.C.) → Salicina (1828) → Aspirina (Bayer, 1897).</li>
-                <li><strong>Umckaloabo (Zulú):</strong> Raíz de <em>Pelargonium sidoides</em> → Extracto EPs 7630 → Medicamento aprobado en Alemania (1983).</li>
-                <li><strong>Miel (Egipto):</strong> Papiro Edwin Smith (~1600 a.C.) → Miel de manuka estandarizada → Revisión Cochrane (2015).</li>
-            </ul>
-        </div>
-
-        <div class="section" id="section-sobre">
-            <h2>Sobre Salud Ancestrale</h2>
-            <p>Este proyecto nace para tender puentes entre el conocimiento ancestral y la evidencia científica moderna.</p>
-            <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-sobre', this)">🔊 Escuchar toda la sección</button>
-            <ul class="about-list">
-                <li><strong>Objetivo:</strong> Divulgar hallazgos científicos contrastados procedentes de medicinas tradicionales antiguas.</li>
-                <li><strong>Método:</strong> Revisión sistemática de ensayos clínicos, metaanálisis y revisiones Cochrane.</li>
-                <li><strong>Valores:</strong> Rigor, respeto por las culturas originarias, y compromiso con la verdad científica.</li>
-                <li><strong>Aviso:</strong> Todo el contenido es informativo y educativo. No constituye consejo médico.</li>
-                <li><strong>Autor:</strong> RubyTools Instruments™</li>
-            </ul>
-        </div>
+        <div class="section" id="section-medicinas"><h2>Medicinas de la Historia</h2><p>Contenido en desarrollo científico.</p></div>
+        <div class="section" id="section-articulos"><h2>Artículos Recientes</h2><p>Contenido en desarrollo científico.</p></div>
+        <div class="section" id="section-papiro"><h2>Del papiro al laboratorio</h2><p>Contenido en desarrollo científico.</p></div>
+        <div class="section" id="section-sobre"><h2>Sobre Salud Ancestrale</h2><p>Plataforma independiente dedicada a la validación de la medicina tradicional.</p></div>
 
         <footer class="footer">
-            Salud Ancestrale — Evidencias de tradiciónes en plena conexión con la ciencia actual · Actualizado 2026
-            <p class="footer-byline">RUBYTools Instruments™</p>
+            <p>© 2026 Salud Ancestrale | Divulgación e Investigación Científica Independiente.</p>
+            <p class="footer-byline">Diseñado y desarrollado bajo el código de veracidad y rigor open-source.</p>
             <div class="footer-links">
-    <a data-modal="avisoLegalModal">Aviso Legal</a>
-    <a data-modal="politicaPrivacidadModal">Política de Privacidad</a>
-    <a data-modal="politicaCookiesModal">Política de Cookies</a>
-</div>
-
-            
+                <a data-modal="avisoLegalModal">Aviso Legal y Exención</a>
+                <a data-modal="politicaPrivacidadModal">Privacidad y Cookies</a>
+            </div>
         </footer>
     </div>
 
-    <button class="speak-btn" id="speakButton" title="Leer sección actual" aria-label="Activar lectura en voz alta">
-        <svg viewBox="0 0 24 24">
-            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-        </svg>
+    <button class="speak-btn" aria-label="Escuchar sección">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
     </button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var overlay = document.getElementById("legalOverlay");
-            var btnAccept = document.getElementById("acceptLegalBtn");
-
-            if (!localStorage.getItem("cookiesAceptadas")) {
-                overlay.classList.add("show");
-            }
-
-            btnAccept.addEventListener("click", function() {
-                localStorage.setItem("cookiesAceptadas", "true");
-                overlay.classList.remove("show");
-            });
-        });
-    </script>
     <script src="ap.js"></script>
-
-    <audio id="bgMusic" loop>
-        <source src="relaxwaves-dalorex.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        document.getElementById("acceptLegalBtn").addEventListener("click", function() {
-            var audio = document.getElementById("bgMusic");
-            audio.volume = 0.03;
-            audio.play().catch(function(e) {
-                console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
-            });
-        });
-    </script>
 </body>
 </html>
