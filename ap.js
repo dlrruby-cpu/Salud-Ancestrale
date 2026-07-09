@@ -1,4 +1,4 @@
-  
+
 // ============================================================
 // 1. NAVEGACIÓN POR SECCIONES (pestañas)
 // ============================================================
@@ -183,7 +183,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================================
-    // 6. MODAL LEGAL (consentimiento de cookies/privacidad)
+    // 6. BOTÓN DE DONACIÓN PAYPAL
+    // ============================================================
+    const paypalBtn = document.querySelector('.btn-paypal');
+    if (paypalBtn) {
+        paypalBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            // REEMPLAZA ESTO CON TU ID DE DONACIÓN DE PAYPAL
+            const paypalDonationLink = 'https://www.paypal.com/donate?hosted_button_id=TU_ID_AQUI';
+            window.open(paypalDonationLink, '_blank');
+        });
+    }
+
+    // ============================================================
+    // 7. MODAL LEGAL (consentimiento de cookies/privacidad)
     // ============================================================
     const legalOverlay = document.getElementById('legalOverlay');
     const acceptBtn = document.getElementById('acceptLegalBtn');
@@ -204,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================================
-    // 7. ENLACES DEL FOOTER (Aviso Legal, Política de Privacidad, Cookies)
+    // 8. ENLACES DEL FOOTER (Aviso Legal, Política de Privacidad, Cookies)
     // ============================================================
     document.querySelector('.footer-links')?.addEventListener('click', function (e) {
         const target = e.target;
@@ -232,5 +245,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
- 
