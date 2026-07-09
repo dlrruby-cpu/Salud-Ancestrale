@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (paypalBtn) {
         paypalBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            // REEMPLAZA ESTO CON TU ID DE DONACIÓN DE PAYPAL
-            const paypalDonationLink = 'https://www.paypal.com/donate?hosted_button_id=TU_ID_AQUI';
+            // Enlace de donación con el correo de PayPal
+            const paypalDonationLink = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=dlrx75@gmail.com&item_name=Donacion+Salud+Ancestrale&no_note=0&currency_code=USD';
             window.open(paypalDonationLink, '_blank');
         });
     }
