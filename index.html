@@ -813,11 +813,184 @@
         </nav>
 
         <div class="section active" id="section-inicio">
-            <h2>Cinco curiosidades científicas que brotaron de la sabiduría antigua</h2>
-            <p>Hoy exploramos remedios milenarios que han superado el escrutinio de ensayos clínicos modernos. Cada tarjeta tiene su propio botón de audio para escuchar el estudio completo.</p>
+            <h2>🆕 Nuevas publicaciones: leyendas virales de la salud ancestral</h2>
+            <p>Hoy estrenamos 5 historias apasionantes con base científica. Cada tarjeta tiene su propio botón de audio para escuchar la leyenda completa.</p>
             <button class="section-speak-btn" onclick="SaludAncestral.speakSection('section-inicio', this)">🔊 Escuchar toda la sección</button>
 
             <div class="cards-grid">
+                <!-- ======== NUEVAS TARJETAS (leyendas virales) ======== -->
+                <!-- Tarjeta: Miel Egipcia -->
+                <div class="card" id="card-miel-viral">
+                    <div class="card-image egypt" style="background-image: url('https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&q=80&w=500');">
+                        <div class="card-symbol">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="4"/>
+                                <circle cx="50" cy="48" r="5" fill="#000"/>
+                                <path d="M30 50 Q15 30 20 20" fill="none" stroke="#000" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="medicine-name">
+                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 50 Q50 20 70 50 Q50 65 30 50 Z" fill="none" stroke="#000" stroke-width="5"/>
+                                <circle cx="50" cy="48" r="5" fill="#000"/>
+                            </svg>
+                            Miel Egipcia (leyenda viral)
+                        </h3>
+                        <p class="curiosity-preview">🐝 ¡La miel cura 4,7 días antes que los apósitos!</p>
+                        <div class="btn-row">
+                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('miel-viral-detail', this)">📜 Ver historia +</button>
+                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-miel-viral', this)">🔊 Escuchar historia</button>
+                        </div>
+                        <div id="miel-viral-detail" class="details">
+                            <p><span class="highlight">📖 Leyenda:</span> En el Antiguo Egipto, la miel era considerada "oro líquido" y se usaba para tratar heridas de guerreros. El Papiro Edwin Smith (1600 a.C.) ya la recomendaba. Hoy, la <strong>Cochrane Review</strong> (2015) confirma que la miel acelera la cicatrización de quemaduras en <strong>4,7 días</strong> de media y reduce infecciones en un 55%. Su secreto: peróxido de hidrógeno natural y efecto antibacteriano, incluso contra <em>MRSA</em>. ¡Un antibiótico natural que los faraones ya conocían!</p>
+                            <span class="grade-badge">GRADE: Alto</span>
+                            <p style="margin-top:0.5rem;"><strong>🔥 Viral:</strong> #MielQueCura #SabiduríaEgipcia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Acupuntura -->
+                <div class="card" id="card-acu-viral">
+                    <div class="card-image china" style="background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&q=80&w=500');">
+                        <div class="card-symbol">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="42" y="2" width="16" height="96" fill="#000" />
+                                <rect x="10" y="20" width="80" height="14" fill="#000" />
+                                <rect x="10" y="42" width="80" height="14" fill="#000" />
+                                <rect x="10" y="66" width="80" height="14" fill="#000" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="medicine-name">
+                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="42" y="2" width="16" height="96" fill="#000" />
+                                <rect x="10" y="20" width="80" height="14" fill="#000" />
+                                <rect x="10" y="42" width="80" height="14" fill="#000" />
+                                <rect x="10" y="66" width="80" height="14" fill="#000" />
+                            </svg>
+                            Acupuntura (leyenda viral)
+                        </h3>
+                        <p class="curiosity-preview">🧠 Las agujas que hablan con el cerebro</p>
+                        <div class="btn-row">
+                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('acu-viral-detail', this)">📜 Ver historia +</button>
+                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-acu-viral', this)">🔊 Escuchar historia</button>
+                        </div>
+                        <div id="acu-viral-detail" class="details">
+                            <p><span class="highlight">📖 Leyenda:</span> Hace 2.000 años, el <em>Huangdi Neijing</em> describía la acupuntura como un arte para equilibrar el Qi. Hoy, la neurociencia lo explica: las agujas estimulan nervios que liberan <strong>endorfinas</strong> y modulan el sistema límbico. Un metaanálisis de <strong>17.922 pacientes</strong> (Vickers, 2012) demostró que la acupuntura real alivia el dolor crónico de forma significativa, con efecto duradero 12 meses. ¡La ciencia confirma lo que los chinos sabían desde la antigüedad!</p>
+                            <span class="grade-badge">GRADE: Moderado</span>
+                            <p style="margin-top:0.5rem;"><strong>🔥 Viral:</strong> #AcupunturaCiencia #DolorCrónico</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Cúrcuma -->
+                <div class="card" id="card-curcuma-viral">
+                    <div class="card-image ayurveda" style="background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&q=80&w=500');">
+                        <div class="card-symbol">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
+                                <ellipse cx="50" cy="50" rx="8" ry="25" fill="none" stroke="#000" stroke-width="4"/>
+                                <circle cx="50" cy="50" r="5" fill="#000"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="medicine-name">
+                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="50" cy="50" rx="25" ry="8" fill="none" stroke="#000" stroke-width="4"/>
+                                <ellipse cx="50" cy="50" rx="8" ry="25" fill="none" stroke="#000" stroke-width="4"/>
+                                <circle cx="50" cy="50" r="5" fill="#000"/>
+                            </svg>
+                            Cúrcuma (leyenda viral)
+                        </h3>
+                        <p class="curiosity-preview">🔥 La especia dorada que vence al ibuprofeno</p>
+                        <div class="btn-row">
+                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('curcuma-viral-detail', this)">📜 Ver historia +</button>
+                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-curcuma-viral', this)">🔊 Escuchar historia</button>
+                        </div>
+                        <div id="curcuma-viral-detail" class="details">
+                            <p><span class="highlight">📖 Leyenda:</span> En la India, la cúrcuma se usa desde hace miles de años en la cocina y como remedio. El ensayo de Kuptniratsaikul (2014) comparó 1.500 mg de cúrcuma con 1.200 mg de ibuprofeno en 367 pacientes con artrosis. Resultado: <strong>¡misma eficacia!</strong> y menos molestias gastrointestinales (8,1% vs 16,9%). La curcumina bloquea moléculas inflamatorias. ¡Un antiinflamatorio natural que compite con la farmacia!</p>
+                            <span class="grade-badge">GRADE: Moderado</span>
+                            <p style="margin-top:0.5rem;"><strong>🔥 Viral:</strong> #CúrcumaVsIbuprofeno #AyurvedaScience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Pelargonium sidoides -->
+                <div class="card" id="card-pelargonium-viral">
+                    <div class="card-image africa" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=500');">
+                        <div class="card-symbol">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="75" y1="75" x2="25" y2="25" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                                <circle cx="50" cy="50" r="22" fill="none" stroke="#000" stroke-width="4"/>
+                                <circle cx="40" cy="45" r="3" fill="#000"/>
+                                <circle cx="60" cy="45" r="3" fill="#000"/>
+                                <ellipse cx="50" cy="56" rx="6" ry="4" fill="#000"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="medicine-name">
+                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="25" y1="75" x2="75" y2="25" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                                <line x1="75" y1="75" x2="25" y2="25" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                                <circle cx="50" cy="50" r="22" fill="none" stroke="#000" stroke-width="4"/>
+                                <circle cx="40" cy="45" r="3" fill="#000"/>
+                                <circle cx="60" cy="45" r="3" fill="#000"/>
+                            </svg>
+                            Pelargonium sidoides (leyenda viral)
+                        </h3>
+                        <p class="curiosity-preview">🌿 La raíz zulú que conquistó Alemania</p>
+                        <div class="btn-row">
+                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('pelargonium-viral-detail', this)">📜 Ver historia +</button>
+                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-pelargonium-viral', this)">🔊 Escuchar historia</button>
+                        </div>
+                        <div id="pelargonium-viral-detail" class="details">
+                            <p><span class="highlight">📖 Leyenda:</span> Los guerreros zulúes usaban la raíz de <em>Pelargonium sidoides</em> para curar infecciones respiratorias. En 1983, Alemania aprobó el extracto EPs 7630 como medicamento. La revisión Cochrane (2013) con 1.640 pacientes demostró que reduce los síntomas de bronquitis aguda en un <strong>70% más que el placebo</strong> y acelera la recuperación. ¡De la tradición oral sudafricana a la farmacia europea!</p>
+                            <span class="grade-badge">GRADE: Moderado</span>
+                            <p style="margin-top:0.5rem;"><strong>🔥 Viral:</strong> #Umckaloabo #MedicinaZulú #Cochrane</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Azafrán -->
+                <div class="card" id="card-azafran-viral">
+                    <div class="card-image persia" style="background-image: url('https://images.unsplash.com/photo-1541417904950-b855846fe074?auto=format&fit=crop&q=80&w=500');">
+                        <div class="card-symbol">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="30" fill="none" stroke="#000" stroke-width="5"/>
+                                <circle cx="62" cy="42" r="25" fill="#fcf9f2" stroke="none"/>
+                                <ellipse cx="16" cy="40" rx="8" ry="4" fill="none" stroke="#000" stroke-width="2" transform="rotate(-30 16 40)"/>
+                                <ellipse cx="84" cy="40" rx="8" ry="4" fill="none" stroke="#000" stroke-width="2" transform="rotate(30 84 40)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="medicine-name">
+                            <svg class="icon-med" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="28" fill="none" stroke="#000" stroke-width="6"/>
+                                <circle cx="62" cy="42" r="24" fill="#fcf9f2" stroke="none"/>
+                            </svg>
+                            Azafrán (leyenda viral)
+                        </h3>
+                        <p class="curiosity-preview">🌺 El antidepresivo natural más caro del mundo</p>
+                        <div class="btn-row">
+                            <button class="btn-expand" onclick="SaludAncestral.toggleDetails('azafran-viral-detail', this)">📜 Ver historia +</button>
+                            <button class="btn-audio" onclick="SaludAncestral.speakCard('card-azafran-viral', this)">🔊 Escuchar historia</button>
+                        </div>
+                        <div id="azafran-viral-detail" class="details">
+                            <p><span class="highlight">📖 Leyenda:</span> El azafrán era tan valioso en la antigua Persia que se usaba como moneda. Hoy, la ciencia ha descubierto que sus compuestos (safranal y crocina) modulan la serotonina y dopamina. Un metaanálisis de 11 ensayos (Tóth, 2018) demostró que <strong>30 mg/día de azafrán son tan eficaces como la fluoxetina</strong> para la depresión leve-moderada, con menos efectos secundarios. ¡La especia más cara también es un remedio para el alma!</p>
+                            <span class="grade-badge">GRADE: Moderado-bajo</span>
+                            <p style="margin-top:0.5rem;"><strong>🔥 Viral:</strong> #AzafránAntidepresivo #MedicinaPersa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======== TARJETAS ORIGINALES (sin cambios) ======== -->
                 <div class="card" id="card-china">
                     <div class="card-image china" style="background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&q=80&w=500');">
                         <div class="card-symbol">
