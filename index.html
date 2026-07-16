@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Salud Ancestrale - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios tradiciones antiguas milenariad a.C.">
+    <meta name="description" content="Salud Ancestrale - Donde la ciencia escucha a los ancestros. Evidencia científica contrastada de medicinas y remedios de tradiciones antiguas milenarias.">
     <meta name="author" content="RUBYTools Instruments">
-    <title>Salud Ancestrale | Explora curiosidades científicas de la salud ancestral. Desde la acupuntura hasta la miel egipcia, analizamos qué dice la ciencia hoy sobre los remedios de siempre.</title>
+    <title>Salud Ancestrale | Evidencia científica de medicinas tradicionales</title>
 
     <meta name="google-site-verification" content="A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8S9t0" />
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dlrruby-cpu.github.io/Salud-Ancestrale/">
 
     <script type="application/ld+json">
     {
@@ -1172,7 +1174,7 @@
             <div class="donate-container">
                 <h3>☕ Apoya nuestro proyecto con una donación</h3>
                 <p>Tu contribución nos ayuda a mantener y crear más contenidos científicos sobre medicina ancestral.</p>
-                <button class="btn-paypal" onclick="SaludAncestral.openPayPalDonation(dlrx75@gmail.com)">
+                <button class="btn-paypal" onclick="SaludAncestral.openPayPalDonation('dlrx75@gmail.com')">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.067 8.478c.492.88.556 2.014.3 3.327-.74 3.806-3.276 5.12-6.514 5.12h-.5a.805.805 0 00-.794.68l-.04.22-.63 4.003-.028.15a.806.806 0 01-.795.68h-2.11a.571.571 0 01-.563-.65l.04-.22.628-3.993.037-.18a.805.805 0 00-.794-.68h-1.97a.571.571 0 01-.563-.65l1.485-9.425a1.61 1.61 0 011.59-1.383h4.917c1.452 0 2.546-.297 3.12-1.177z"/>
                     </svg>
@@ -1249,46 +1251,12 @@
         </svg>
     </button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var overlay = document.getElementById("legalOverlay");
-            var btnAccept = document.getElementById("acceptLegalBtn");
-            var btnReject = document.getElementById("rejectLegalBtn");
-
-            if (!localStorage.getItem("consentimientoLegal")) {
-                overlay.classList.add("show");
-            }
-
-            btnAccept.addEventListener("click", function() {
-                localStorage.setItem("consentimientoLegal", "aceptado");
-                localStorage.setItem("cookiesAceptadas", "true");
-                localStorage.setItem("fechaConsentimiento", new Date().toISOString());
-                overlay.classList.remove("show");
-                SaludAncestral.initializeAnalytics();
-            });
-
-            btnReject.addEventListener("click", function() {
-                localStorage.setItem("consentimientoLegal", "rechazado");
-                localStorage.setItem("cookiesAceptadas", "false");
-                overlay.classList.remove("show");
-                console.log("El usuario ha rechazado cookies y análisis.");
-            });
-        });
-    </script>
-    <script src="ap.js"></script>
-
+    <!-- Elemento de audio para hilo musical -->
     <audio id="bgMusic" loop>
         <source src="relaxwaves-dalorex.mp3" type="audio/mpeg">
     </audio>
 
-    <script>
-        document.getElementById("acceptLegalBtn").addEventListener("click", function() {
-            var audio = document.getElementById("bgMusic");
-            audio.volume = 0.03;
-            audio.play().catch(function(e) {
-                console.log("La reproducción automática de música ambiental requiere interacción del usuario.");
-            });
-        });
-    </script>
+    <!-- Carga del archivo JavaScript externo -->
+    <script src="ap.js"></script>
 </body>
 </html>
