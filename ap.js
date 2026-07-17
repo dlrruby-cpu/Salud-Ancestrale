@@ -2,13 +2,11 @@
  * Salud Ancestrale - Lógica completa
  **********************************************/
 
-// Objeto global que usa el HTML
 var SaludAncestral = SaludAncestral || {};
 
 (function () {
     'use strict';
 
-    // ---------- Navegación entre secciones ----------
     function initNavigation() {
         var navLinks = document.querySelectorAll('.nav a');
         var sections = document.querySelectorAll('.section');
@@ -17,10 +15,8 @@ var SaludAncestral = SaludAncestral || {};
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 var target = this.getAttribute('data-section');
-                // Desactivar todas las secciones y enlaces
                 sections.forEach(function (sec) { sec.classList.remove('active'); });
                 navLinks.forEach(function (l) { l.classList.remove('active'); });
-                // Activar la sección correspondiente
                 var activeSection = document.getElementById('section-' + target);
                 if (activeSection) activeSection.classList.add('active');
                 this.classList.add('active');
@@ -28,7 +24,6 @@ var SaludAncestral = SaludAncestral || {};
         });
     }
 
-    // ---------- Expansión de detalles ----------
     SaludAncestral.toggleDetails = function (detailId, btn) {
         var detail = document.getElementById(detailId);
         if (!detail) return;
@@ -42,7 +37,6 @@ var SaludAncestral = SaludAncestral || {};
         }
     };
 
-    // ---------- Lectura en voz alta (tarjetas y secciones) ----------
     var speechSynth = window.speechSynthesis;
     var speaking = false;
     var currentUtterance = null;
@@ -87,7 +81,6 @@ var SaludAncestral = SaludAncestral || {};
     SaludAncestral.speakCard = function (cardId, btn) {
         var card = document.getElementById(cardId);
         if (!card) return;
-        // Extraer todo el texto visible de la tarjeta
         var text = card.innerText || card.textContent;
         if (btn) {
             btn.setAttribute('data-original-text', btn.textContent);
@@ -105,7 +98,6 @@ var SaludAncestral = SaludAncestral || {};
         speakText(text, btn);
     };
 
-    // Botón flotante global (lee la sección activa)
     function initFloatingSpeakButton() {
         var speakBtn = document.getElementById('speakButton');
         if (!speakBtn) return;
@@ -117,26 +109,26 @@ var SaludAncestral = SaludAncestral || {};
         });
     }
 
-    // ---------- Donación PayPal ----------
+    // ---------- Donación PayPal (URL moderna con respaldo si se bloquea popup) ----------
     SaludAncestral.openPayPalDonation = function (email) {
-        var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=' +
+        var url = 'https://www.paypal.com/donate?business=' +
                   encodeURIComponent(email) +
                   '&item_name=Apoyo+a+Salud+Ancestrale&currency_code=EUR';
-        window.open(url, '_blank');
+        var newWindow = window.open(url, '_blank', 'noopener');
+        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+            window.location.href = url;
+        }
     };
 
-    // ---------- Aviso legal y reproducción de música ----------
     function initLegalConsent() {
         var overlay = document.getElementById('legalOverlay');
         var btnAccept = document.getElementById('acceptLegalBtn');
         var btnReject = document.getElementById('rejectLegalBtn');
         var audio = document.getElementById('bgMusic');
 
-        // Mostrar overlay si no hay consentimiento guardado
         if (!localStorage.getItem('consentimientoLegal')) {
             overlay.classList.add('show');
         } else {
-            // Si ya aceptó, intentar reproducir música automáticamente
             if (localStorage.getItem('consentimientoLegal') === 'aceptado' && audio) {
                 audio.volume = 0.03;
                 audio.play().catch(function (e) {
@@ -151,16 +143,12 @@ var SaludAncestral = SaludAncestral || {};
             localStorage.setItem('fechaConsentimiento', new Date().toISOString());
             overlay.classList.remove('show');
 
-            // Iniciar hilo musical
             if (audio) {
                 audio.volume = 0.03;
                 audio.play().catch(function (e) {
                     console.log('Error al reproducir música:', e);
                 });
             }
-
-            // Aquí puedes añadir inicialización de analytics si lo deseas
-            // SaludAncestral.initializeAnalytics();
         });
 
         btnReject.addEventListener('click', function () {
@@ -171,16 +159,14 @@ var SaludAncestral = SaludAncestral || {};
         });
     }
 
-    // ---------- Inicialización general ----------
     document.addEventListener('DOMContentLoaded', function () {
         initNavigation();
         initFloatingSpeakButton();
         initLegalConsent();
 
-        // También permitir cerrar los modales de aviso legal, privacidad y cookies
         var closeButtons = document.querySelectorAll('.legal-modal .btn-accept, .legal-modal .btn-reject');
         closeButtons.forEach(function (btn) {
-            if (btn.id === 'acceptLegalBtn' || btn.id === 'rejectLegalBtn') return; // ya gestionados
+            if (btn.id === 'acceptLegalBtn' || btn.id === 'rejectLegalBtn') return;
             btn.addEventListener('click', function () {
                 var modal = this.closest('.legal-overlay');
                 if (modal) modal.classList.remove('show');
