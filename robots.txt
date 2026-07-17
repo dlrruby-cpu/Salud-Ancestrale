@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dlrruby-cpu.github.io/Salud-Ancestrale/sitemap.xml
