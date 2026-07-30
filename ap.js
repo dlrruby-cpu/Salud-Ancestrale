@@ -1,4 +1,4 @@
-/**********************************************
+0/**********************************************
  * Salud Ancestrale - Lógica completa
  **********************************************/
 
@@ -144,7 +144,7 @@ var SaludAncestral = SaludAncestral || {};
             overlay.classList.remove('show');
 
             if (audio) {
-                audio.volume = 0.03;
+                audio.volume = 0.05;
                 audio.play().catch(function (e) {
                     console.log('Error al reproducir música:', e);
                 });
