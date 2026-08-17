@@ -110,13 +110,16 @@ var SaludAncestral = SaludAncestral || {};
     }
 
     // ---------- Donación PayPal (URL moderna con respaldo si se bloquea popup) ----------
-    SaludAncestral.openPayPalDonation = function (email) {
-        var url = 'https://www.paypal.com/donate?="DAVIDLOPEZDALOREX"';
-                  '&item_name=Apoyo+a+Salud+Ancestrale&currency_code=EUR';
-        var newWindow = window.open(url, '_blank', 'noopener');
-        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-            window.location.href = url;
-        }
+    var url = 'https://www.paypal.com/donate?url=DAVIDLOPEZDALOREX' +
+          '&item_name=Apoyo+a+Salud+Ancestrale' +
+          '&currency_code=EUR';
+
+var newWindow = window.open(url, '_blank', 'noopener');
+if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+    window.location.href = url;
+}
+
+        
     };
 
     function initLegalConsent() {
